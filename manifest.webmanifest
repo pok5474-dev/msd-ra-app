@@ -1,0 +1,26 @@
+{
+ "name": "근골격계 유해요인조사·위험성평가 웹앱",
+ "short_name": "유해요인·위험성",
+ "lang": "ko",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#ffffff",
+ "theme_color": "#1F4E79",
+ "description": "근골격계 유해요인조사와 위험성평가를 현장에서 입력·관리하는 오프라인 웹앱. 입력 자료는 각 기기 안에만 저장됩니다.",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any maskable"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}
