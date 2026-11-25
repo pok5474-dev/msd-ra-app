@@ -314,6 +314,15 @@ tr.td-flash td{background:#FFF4CC!important;transition:background .4s}
 /*ADMIN-CSS*/.simple-box{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid #c9d3df;border-radius:10px;padding:10px 12px;margin:10px 0;background:#FAFBFD}.simple-box.on{border-color:#70AD47;background:#F1F8EC}.simple-box>div{flex:1 1 320px}
 .simple-steps{display:flex;flex-wrap:wrap;gap:6px;margin:-2px 0 12px}.simple-steps .btn{background:#fff}
 body.simple .multi-sec{display:none}/*ADMIN-CSS-END*/
+/*SLIM-CSS*/#fv .fv-tools{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}#fv .fv-q{grid-column:auto}
+#fv .fv-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #DDE3EA}
+#fv .fv-bar button{min-height:50px;border-radius:10px;font:inherit;font-weight:700;font-size:15.5px;border:2px solid #70AD47;background:#F1F8EC;color:#375623}
+#fv .fv-bar .fvb-sy{border-color:#b8c6d6;background:#fff;color:#8a96a3}#fv .fv-bar .fvb-sy.on{border-color:#1F4E79;background:#1F4E79;color:#fff}#fv .fv-bar .fvb-sy b{background:#fff;color:#1F4E79;border-radius:10px;padding:0 8px;margin-left:4px}
+#fv .td-chips{margin:6px 10px 0}
+.sl-move{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;background:#EEF3FA;border-radius:8px;padding:8px 12px;margin:8px 0 4px;font-size:13.5px}.sl-move>b{color:#1F4E79}
+.sl-fold{border:1px solid #c9d3df;border-radius:10px;margin:12px 0;background:#fff}.sl-fold>summary{cursor:pointer;padding:10px 14px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;list-style:none}.sl-fold>summary::before{content:"▸";color:#2F75B5}.sl-fold[open]>summary::before{content:"▾"}
+.sl-fold>.home{padding:0 12px 12px}.sl-fold>.sl-body{padding:0 12px 12px}.sl-wide,.home>.simple-box{grid-column:1/-1}
+@media print{.sl-fold{border:0}.sl-fold>summary{display:none}}/*SLIM-CSS-END*/
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1F4E79">
@@ -466,21 +475,22 @@ function nav(){
 }
 function head(t,note){ return `<h2>${t}${S.ui.fDept?` <span style="font-size:12.5px;background:#FFD966;color:#222;padding:2px 8px;border-radius:4px;margin-left:8px">${esc(deptName(S.ui.fDept))}만 표시 중</span>`:""}</h2>${note?`<div class="note">${note}</div>`:""}${BASE_MSG?`<div class="warn">${esc(BASE_MSG)}</div>`:""}${storageOK?"":`<div class="warn">이 브라우저에서는 자동 저장이 되지 않습니다. '결과·데이터 → 저장·내보내기'에서 백업 파일을 꼭 받아 두세요.</div>`}`; }
 const V={};
-V.guide=()=>head("사용 안내","제조·식품·물류·보건복지 등 업종에 관계없이 50명 이상 사업장(중견 300~500명, 대규모 1,000명 이상 포함)에서 쓰도록 만든 오프라인 도구입니다. 위쪽 버튼으로 양식을 고릅니다. 노란 칸은 입력, 회색 칸은 자동 계산입니다. 입력 내용은 이 기기의 브라우저에 자동 저장되며, 기록 보관용으로는 '저장·내보내기'에서 엑셀 파일이나 백업 파일을 받아 두세요.")+hook("home")+
- `<div class="home">
+V.guide=()=>head(hasData(S)?"처음 화면":"사용 안내",hasData(S)?"":"제조·식품·물류·보건복지 등 업종에 관계없이 50명 이상 사업장(중견 300~500명, 대규모 1,000명 이상 포함)에서 쓰도록 만든 오프라인 도구입니다. 위쪽 버튼으로 양식을 고릅니다. 노란 칸은 입력, 회색 칸은 자동 계산입니다. 입력 내용은 이 기기의 브라우저에 자동 저장되며, 기록 보관용으로는 '저장·내보내기'에서 엑셀 파일이나 백업 파일을 받아 두세요.")+hook("home")+
+ `<details class="sl-fold" data-slfold="nav" ${hasData(S)&&!(S.ui.slOpen||{}).nav?"":"open"}><summary><b>양식 바로가기</b><span class="memo">공통 정보 · 근골격계 유해요인조사 · 위험성평가 · 결과·데이터</span></summary><div class="sl-body"><div class="home">
  <div class="card"><h4>① 공통 정보</h4><p>사업장 정보(규모별 법정 체제 점검), 부서·라인 → 공정 → 단위작업 목록. 두 양식이 함께 씁니다.</p><button class="btn p" data-go="common:site">사업장 정보</button><button class="btn" data-go="common:procs">부서·공정·작업 목록</button></div>
  <div class="card"><h4>② 근골격계 유해요인조사</h4><p>부담작업 체크리스트 → 작업장 상황조사 → 작업조건조사(1~3단계) → RULA·REBA·NLE 정밀평가 → 증상조사 집계 → 종합 판정 → 공정별 조사표 인쇄.</p><button class="btn p" data-go="msd:check">근골격계 유해요인조사 양식</button></div>
  <div class="card"><h4>③ 위험성평가</h4><p>실시규정 → 사전준비 → 평가 대상 목록 → 위험성평가(근골격계 항목 자동 연계 + 기타 위험 입력, 빈도·강도법) → 감소대책·재평가 → 근로자 참여·산업안전보건위원회 → 도급·협력업체(협의체) → TBM 활동.</p><button class="btn p" data-go="ra:risk">위험성평가 양식</button><button class="btn" data-go="ra:reg">실시규정</button></div>
  <div class="card"><h4>④ 결과·데이터</h4><p>결과 요약(지표·그래프), 엑셀 내보내기, 백업 파일 저장·불러오기, 예시 자료 불러오기.</p><button class="btn p" data-go="out:summary">결과 요약</button><button class="btn" data-go="out:data">저장·내보내기</button></div>
  </div>
+</div></details>
 ${S.procs.length||S.site.name?progress()+complianceTable():""}
- <h3>작업 순서 (50명 이상 사업장 기준 — 300명 이상은 전담 안전·보건관리자가 총괄)</h3><ol style="line-height:1.8">
+ <details class="sl-fold" data-slfold="order" ${hasData(S)&&!(S.ui.slOpen||{}).order?"":"open"}><summary><b>작업 순서 안내</b><span class="memo">준비 → 부서별 평가 → 병합·정밀평가 → 심의·공유 → 사후관리</span></summary><div class="sl-body"> <h4>작업 순서 (50명 이상 사업장 기준 — 300명 이상은 전담 안전·보건관리자가 총괄)</h4><ol style="line-height:1.8">
  <li><b>준비 (보건관리자)</b>: 사업장 정보·규모별 체제 점검 → 실시규정 → 사전준비 → 부서·공정 등록 → 평가 대상 목록 → 사전 회의(근로자 참여)</li>
  <li><b>부서별 평가 (관리감독자)</b>: 백업 파일을 나눠 받아 작성자 코드 지정 → 자기 부서 단위작업 관찰·체크리스트·작업조건조사·위험성평가 → '부서별 제출 파일' 전달</li>
  <li><b>병합·정밀평가 (보건관리자)</b>: 제출 파일 병합 → RULA·REBA·NLE → 증상조사 집계(공정별 인원만) → 종합 판정</li>
  <li><b>협력업체</b>: 협력업체 작업 위험성평가 포함, 안전보건협의체 매월 회의·순회점검 기록</li>
  <li><b>심의·공유</b>: 산업안전보건위원회 심의·의결 → 게시·TBM 공유 → 감소대책 실행·잔여 위험 수용 결정</li>
- <li><b>사후관리</b>: 결과 요약에서 부서별 미완료 점검 → 연도 기록 남기기 → 엑셀·백업으로 보관(3년)</ol>
+ <li><b>사후관리</b>: 결과 요약에서 부서별 미완료 점검 → 연도 기록 남기기 → 엑셀·백업으로 보관(3년)</ol></div></details>
  <div class="warn">이 웹앱은 기록·계산 도구입니다. 판정과 대책의 적절성은 보건관리자 또는 전문기관의 검토를 받으세요. 개인별 증상 응답(건강정보)은 이 웹앱에 입력하지 않습니다.</div>`;
 V.site=()=>{ const f=[["name","사업장명"],["ceo","대표자"],["mgmtNo","사업장 관리번호"],["addr","소재지"],["industry","업종명 (업종코드)"],["product","주요 생산품·서비스"],["workers","근로자 구성 설명 (직영·협력·외국인 등)"],["comp","근로자 구성 (성별·연령대·근속)"],["shift","근무 형태 (교대·근무시간·휴게)"],["contact","담당자 (연락처)"],["docNo","문서번호"]];
  const nx=(d,m)=>{ if(!d)return ""; const x=new Date(d); if(isNaN(x))return ""; x.setMonth(x.getMonth()+m); return x.toISOString().slice(0,10); };
@@ -1038,11 +1048,11 @@ function fvIn(path,o={}){ const v=getP(path); const val=v==null?"":v;
 function fvList(){ const rows=fvRows(), all=riskRows(); const todo=all.filter(r=>{ const s=rStatus(r); return s&&s!=="완료"&&s!=="진행 중"; }).length;
  return `<div class="fv-top"><div class="fv-tt"><b>현장 보기</b><span>${esc(S.site.name||"")}</span></div><button class="fv-pc" data-fvclose="1">PC 화면</button></div>
  <div class="fv-tools"><select data-fvproc="1"><option value="">전체 공정 (${all.length})</option>${S.procs.filter(p=>p.name).map(p=>`<option value="${p.id}" ${FV.proc===p.id?"selected":""}>${esc(p.name)}</option>`).join("")}</select>
- <label class="fv-only ${FV.only?"on":""}"><input type="checkbox" data-fvonly="1" ${FV.only?"checked":""}> 할 일만 (${todo})</label>
+ ${feat("todo")?"":`<label class="fv-only ${FV.only?"on":""}"><input type="checkbox" data-fvonly="1" ${FV.only?"checked":""}> 할 일만 (${todo})</label>`}
  <input class="fv-q" data-fvq="1" value="${esc(FV.q||"")}" placeholder="번호·작업 이름 찾기"></div>${hook("fvTop")}
  <div class="fv-body">${rows.length?rows.map(r=>{ const t=r.zone===1?S.tasks.find(x=>x.id===r.id):null; const ru=t&&rula(t.rula), rb=t&&reba(t.reba);
   const pose=r.zone===1?`<span class="fv-pose">${ru?`RULA ${ru.fin}`:rb?`REBA ${rb.fin}`:(t&&t.pre&&t.pre.tool?`예비 ${esc(t.pre.tool)} ${esc(t.pre.score??"")}`:"자세 평가 전")}</span>`:"";
-  return `<button class="fv-card" data-fvitem="${esc(r.id)}"><div class="fv-c1"><span class="fv-id">${esc(r.id)}</span><span class="fv-proc">${esc(r.proc||"")}</span>${fvSt(rStatus(r))}</div><div class="fv-name">${esc(r.task||r.cause||"")}</div><div class="fv-c3">${fvGrade(r.J,r.I,"현재 ")}<span class="fv-ar">→</span>${r.S?fvGrade(r.T,r.S,"개선 후 "):`<span class="fv-g">개선 후 미정</span>`}${pose}</div></button>`; }).join(""):`<div class="fv-empty">해당하는 항목이 없습니다.</div>`}</div>`; }
+  return `<button class="fv-card" data-fvitem="${esc(r.id)}"><div class="fv-c1"><span class="fv-id">${esc(r.id)}</span><span class="fv-proc">${esc(r.proc||"")}</span>${fvSt(rStatus(r))}</div><div class="fv-name">${esc(r.task||r.cause||"")}</div><div class="fv-c3">${fvGrade(r.J,r.I,"현재 ")}<span class="fv-ar">→</span>${r.S?fvGrade(r.T,r.S,"개선 후 "):`<span class="fv-g">개선 후 미정</span>`}${pose}</div></button>`; }).join(""):`<div class="fv-empty">해당하는 항목이 없습니다.</div>`}</div>${hook("fvBottom")}`; }
 function fvItem(){ const rows=fvRows(); let k=rows.findIndex(r=>r.id===FV.id); if(k<0){ const all=riskRows(); const r0=all.find(r=>r.id===FV.id); if(!r0){ FV.view="list"; return fvList(); } rows.splice(0,rows.length,...all); k=all.indexOf(r0); }
  const r=rows[k], t=r.zone===1?S.tasks.find(x=>x.id===r.id):null, ti=t?S.tasks.indexOf(t):-1, b=r.base, R=regGet();
  const tabs=[["eval","평가",!r.J],["meas","대책",(r.J==="상"||r.J==="중")&&!r.m.K],["photo","사진",false]];
@@ -1147,7 +1157,7 @@ function compliance(){ const n=+S.site.nW, g={mfg:"50",svc:"300",etc:"100"}[S.si
 function procsWithTasks(){ return S.procs.filter(p=>p.name&&validTasks().some(t=>t.proc===p.id)); }
 function complianceTable(){ const C=compliance(), bad=C.filter(c=>c.state!=="충족").length;
  return `<h3>법정 이행 점검 ${bad?`<span class="g-상" style="font-size:12px;padding:1px 8px;border-radius:3px">보완 ${bad}건</span>`:`<span class="g-하" style="font-size:12px;padding:1px 8px;border-radius:3px">모두 충족</span>`}</h3>
- <div class="wrap"><table style="width:100%"><tr><th>항목</th><th>기준</th><th>상태</th><th>내용</th><th class="noprint"></th></tr>${C.map(c=>`<tr><td class="auto l b">${c.item}</td><td class="auto">${c.need}</td><td class="auto ${c.state==="충족"?"g-하":c.state==="보완"?"g-중":"g-상"}">${c.state}</td><td class="auto l">${esc(c.detail)}</td><td class="noprint"><button class="btn" data-go="${c.go}">바로 가기</button></td></tr>`).join("")}</table></div>
+ <div class="wrap"><table style="width:100%"><tr><th>항목</th><th>기준</th><th>상태</th><th>내용</th><th class="noprint"></th></tr>${C.filter(c=>!(S.ui.tab==="guide"&&!S.ui.allRows&&c.state==="충족")).map(c=>`<tr><td class="auto l b">${c.item}</td><td class="auto">${c.need}</td><td class="auto ${c.state==="충족"?"g-하":c.state==="보완"?"g-중":"g-상"}">${c.state}</td><td class="auto l">${esc(c.detail)}</td><td class="noprint"><button class="btn" data-go="${c.go}">바로 가기</button></td></tr>`).join("")}</table></div>
  <p class="memo">기록이 있는지와 날짜만 확인합니다. 내용의 적정성은 보건관리자·전문기관이 검토하세요. 기준 일수: 분기 100일, 매월 35일.</p>`; }
 // ── 진행 현황 ──
 function progress(){ const ts=validTasks(), P=S.procs.filter(p=>p.name); const unChk=ts.filter(t=>!isNum(t.hours)&&!(t.ho||[]).some(Boolean)).length;
@@ -1160,7 +1170,7 @@ function progress(){ const ts=validTasks(), P=S.procs.filter(p=>p.name); const u
   ["실시규정",regCheck().includes("보완 필요")?"보완":"완료",regCheck().includes("보완 필요")?"필수 항목 미입력":"완료","ra:reg"],
   ["위험성평가 감소대책",!riskRows().length?"미입력":riskRows().filter(noPlan).length?"보완":"완료",`대책 미수립 ${riskRows().filter(noPlan).length}건`,"ra:risk"]];
  const done=items.filter(i=>i[1]==="완료").length;
- return `<h3>진행 현황 — ${done} / ${items.length} 단계 완료</h3><div class="wrap"><table style="width:100%"><tr><th>단계</th><th>상태</th><th>남은 일</th><th class="noprint"></th></tr>${items.map(([a,st,d,go])=>`<tr><td class="auto l b">${a}</td><td class="auto ${st==="완료"?"g-하":st==="보완"?"g-중":"g-상"}">${st}</td><td class="auto l">${esc(d)}</td><td class="noprint"><button class="btn" data-go="${go}">바로 가기</button></td></tr>`).join("")}</table></div>`; }
+ return `<h3>진행 현황 — ${done} / ${items.length} 단계 완료</h3><div class="wrap"><table style="width:100%"><tr><th>단계</th><th>상태</th><th>남은 일</th><th class="noprint">${S.ui.tab==="guide"?`<button class="btn" data-allrows="1">${S.ui.allRows?"남은 일만":"완료 포함 전체"}</button>`:""}</th></tr>${items.filter(([a,st])=>!(S.ui.tab==="guide"&&!S.ui.allRows&&st==="완료")).map(([a,st,d,go])=>`<tr><td class="auto l b">${a}</td><td class="auto ${st==="완료"?"g-하":st==="보완"?"g-중":"g-상"}">${st}</td><td class="auto l">${esc(d)}</td><td class="noprint"><button class="btn" data-go="${go}">바로 가기</button></td></tr>`).join("")}</table></div>`; }
 
 V.targets=()=>head("위험성평가 대상 목록 (기계·설비 / 유해물질 / 비일상 작업)","작업장의 설비·물질·비일상 작업을 빠짐없이 적고, '위험성평가 번호'에서 연결할 위험성평가 항목을 고르세요. 비어 있으면 '미평가', 위험성평가에 없는 번호가 남아 있으면 빨간색으로 표시됩니다.")+
  `<div class="wrap"><table><tr><th>번호</th><th>구분</th><th>명칭</th><th>수량·규격</th><th>사용 공정</th><th>주요 유해·위험</th><th>위험성평가 번호<br><span style="font-weight:400;font-size:10.5px">일부만 평가됐으면 '추가 평가 필요', 위험이 없으면 '해당 없음'</span></th><th>관리 사항</th><th>상태</th><th class="noprint"></th></tr>
@@ -1652,6 +1662,36 @@ HOOK.home.push(["간편 모드",simpleCard]);
 document.addEventListener("click",e=>{ if(!e.target.closest("[data-simple]"))return; S.ui.simple=!simpleOn(); if(S.ui.simple)S.ui.fDept=""; save(); render(); },true);
 function simpleClass(){ document.body.classList.toggle("simple",simpleOn()); }
 /*ADMIN-END*/
+// ── 화면 정리 (SLIM) ── 기능은 그대로, 자리와 무게만 정리: 자주 쓰는 것은 앞에, 가끔·관리 기능은 접어 둠
+// 휴대폰: 위쪽 알림은 가장 급한 1줄만 / 자주 하는 두 가지(TBM 기록, 변경분 보내기)는 엄지 닿는 아래 고정 바
+(function(){ const drop=new Set(["새 버전 알림","저장 알림","변경분 알림","TBM 간편 기록"]);
+ HOOK.fvTop=HOOK.fvTop.filter(h=>!drop.has(h[0]));
+ HOOK.fvTop.unshift(["알림",()=>{ const a=typeof dpUpdateBar==="function"?dpUpdateBar():""; if(a)return a; return typeof storeStrip==="function"?storeStrip(true):""; }]);
+ HOOK.fvBottom=HOOK.fvBottom||[];
+ HOOK.fvBottom.push(["아래 바",()=>{ if(!hasData(S))return ""; const p=feat("sync")&&typeof syPending==="function"?syPending().length:0;
+  const tb=feat("tbmq")&&S.procs.length?`<button class="fvb-tbm" data-tqopen="1">TBM 기록</button>`:"";
+  const sy=feat("sync")?`<button class="fvb-sy ${p?"on":""}" data-sysend="1" ${p?"":"disabled"}>${p?`PC로 보내기 <b>${p}</b>`:"보낼 변경 없음"}</button>`:"";
+  return tb||sy?`<div class="fv-bar">${tb}${sy}</div>`:""; }]);
+})();
+// PC 저장·내보내기: 자주 / 가끔 / 관리·문제 해결 세 칸
+const SL_OFTEN=["변경분 주고받기"], SL_MANAGE=["이 기기 저장 상태","홈 화면에 추가"];
+function slHooks(names,incl){ return (HOOK.data||[]).filter(h=>incl?names.includes(h[0]):!names.includes(h[0])); }
+function slRun(list){ return list.map(([n,fn,fk])=>fk&&!feat(fk)?"":safe(n,fn)).join(""); }
+function slFold(id,title,sub,body){ const open=!!(S.ui.slOpen||{})[id];
+ return `<details class="sl-fold" data-slfold="${id}" ${open?"open":""}><summary><b>${title}</b><span class="memo">${sub}</span></summary><div class="home">${body}</div></details>`; }
+function slData(parts){ const often=slRun(slHooks(SL_OFTEN,true)), rare=slRun(slHooks(SL_OFTEN.concat(SL_MANAGE),false)), manage=slRun(slHooks(SL_MANAGE,true));
+ return head("저장·내보내기","")+
+ `<div class="sl-move"><b>자료 옮기기</b><span>PC → 휴대폰: <b>백업 파일</b>을 보내고 휴대폰에서 한 번 불러오기</span><span>휴대폰 → PC: 휴대폰 아래 <b>PC로 보내기</b> → 여기서 <b>변경분 받기</b></span></div>
+ <h3>자주 쓰는 것</h3><div class="home">${often}${parts.exp}${parts.backup}</div>
+ ${slFold("rare","가끔 쓰는 것","엑셀에서 다시 불러오기 · 여러 부서 나눠 입력(제출·병합) · 사진 용량 · 예시 자료",parts.xi+rare+parts.sample+`<div class="card sl-wide">${parts.multi}</div>`)}
+ ${slFold("manage","관리 · 문제 해결","이 기기 저장 상태 · 홈 화면 추가 · 복원 지점 · 기능 켜기·끄기 · 오류 기록",manage+baseCards())}`; }
+// 사용자가 제목을 눌러 펼치거나 접을 때만 기억 (화면을 그릴 때 생기는 toggle 이벤트로 저장하지 않음)
+document.addEventListener("click",e=>{ const sm=e.target.closest("details.sl-fold>summary"); if(!sm)return; const d=sm.parentElement; setTimeout(()=>{ S.ui.slOpen=Object.assign({},S.ui.slOpen,{[d.dataset.slfold]:d.open}); },0); },true);
+// PC 처음 화면: 오늘 할 일·진행 현황이 먼저, 간편 모드·사용 안내 카드는 접기
+(function(){ const h=HOOK.home||[]; const i=h.findIndex(x=>x[0]==="간편 모드"); if(i>=0)h.splice(i,1); })();
+HOOK.data.push(["간편 모드",simpleCard]);
+document.addEventListener("click",e=>{ if(!e.target.closest("[data-allrows]"))return; S.ui.allRows=!S.ui.allRows; save(); render(); },true);
+/*SLIM-END*/
 function migrate(){ if(!S.notes)S.notes={}; (S.risk.other||[]).forEach(o=>{ const m=OLDCAT[o.cat]; if(m){ o.cat=m[0]; if(!o.acc)o.acc=m[1]; } }); if(!S.risk.photos)S.risk.photos={}; if(!S.ui.open)S.ui.open={}; baseMigrate(); }
 const rStatus=r=>noPlan(r)?"대책 미수립":overdue(r)?"목표일 경과":badAccept(r)?"상 등급 수용 불가":needAccept(r)?"잔여 위험 수용 미결정":r.m.P?"완료":r.m.K?"진행 중":"";
 const overdue=r=>r.m.O&&!r.m.P&&r.m.O<today();
@@ -1757,17 +1797,11 @@ V.summary=()=>{ const ts=validTasks(), rows=riskRows(); const tot=sumSymp("resp"
  ${complianceTable()}
  <h3>미완료·대책 필요 항목 (위험성평가에서 자동 추출 — 등급·위험성 높은 순)</h3>${(()=>{const GR={"상":0,"중":1,"하":2}; const L=rows.filter(r=>noPlan(r)||overdue(r)||needAccept(r)||badAccept(r)||((r.J==="상"||r.J==="중")&&r.m.K&&!r.m.P)).sort((x,y)=>(GR[x.J]??3)-(GR[y.J]??3)||(+y.I||0)-(+x.I||0)||String(x.m.O||"9999").localeCompare(String(y.m.O||"9999")));
  return L.length?`<div class="wrap"><table style="width:100%"><tr><th>번호</th><th>부서·라인</th><th>공정</th><th>세부 작업</th><th>등급</th><th>위험성</th><th>감소대책</th><th>담당</th><th>목표일</th><th>상태</th></tr>${L.map(r=>{const st=noPlan(r)?"대책 미수립":overdue(r)?"목표일 경과":badAccept(r)?"상 등급 수용 불가":needAccept(r)?"잔여 위험 수용 미결정":"진행 중";return `<tr><td class="auto b">${r.id}</td><td class="auto l">${esc(deptName(deptOf(r.pid)))}</td><td class="auto l">${esc(r.proc)}</td><td class="auto l">${esc(r.task)}</td><td class="auto g-${r.J}">${r.J}</td><td class="auto b">${r.I}</td><td class="auto l">${esc(r.m.K)}</td><td class="auto">${esc(r.m.N)}</td><td class="auto">${esc(r.m.O)}</td><td class="auto ${st==="진행 중"||st.startsWith("잔여")?"g-중":"g-상"}">${st}</td></tr>`}).join("")}</table></div>`:"<p>미완료 항목이 없습니다.</p>"})()}${deptTable()}${historyView()}`; };
-V.data=()=>head("저장·내보내기","입력 내용은 이 브라우저에 자동 저장되지만, 브라우저 기록을 지우거나 다른 기기에서 열면 보이지 않습니다. 작업을 마치면 백업 파일(.json)이나 엑셀 파일(.xlsx)을 받아 보관하세요.")+
- `<div class="home"><div class="card"><h4>파일로 내보내기</h4><p><b>엑셀(.xlsx)</b> — 모든 양식을 시트별로 담습니다(계산 결과 포함, 사진 제외). 기록 보존(3년)용.<br><b>워드(.docx) · 한글(.hwpx)</b> — 제출·결재용 보고서 형식(가로 A4)으로 사업장 개요, 종합 의견, 유해요인조사, 위험성평가표, 개선 전후 사진, 근로자 참여 기록을 담습니다. 한글 2014 이상에서 열립니다.</p><div class="row"><button class="btn p" data-act="xlsx">엑셀 (.xlsx)</button> <button class="btn p" data-act="docx">워드 (.docx)</button> <button class="btn p" data-act="hwpx">한글 (.hwpx)</button></div></div>
- <div class="card" id="xicard"><h4>엑셀에서 다시 불러오기 (점수·위험성평가)</h4><p>이 웹앱에서 내보낸 엑셀의 <b>RULA·REBA·NLE 시트</b>(점수)와 <b>위험성평가 시트</b>(감소대책·담당·목표일·완료일·개선 후 점수·남은 위험 수용)에 적은 내용을 <b>작업 ID·번호</b> 기준으로 다시 가져옵니다. 반영 전에 바뀌는 칸과 점수 변화를 보여 주며, 반영할 작업을 고를 수 있습니다. 엑셀에서 비워 둔 칸은 기본적으로 웹앱 값을 유지합니다.</p><div class="row"><label class="btn p">엑셀(.xlsx) 선택<input type="file" accept=".xlsx" data-xifile="1" style="display:none"></label>${XI_UNDO?`<button class="btn" data-xiundo="1">방금 반영 되돌리기</button>`:""}</div>${S.ui&&S.ui.xiMsg?`<p class="memo" style="color:#1F4E79"><b>${esc(S.ui.xiMsg)}</b></p>`:""}</div>
- <div class="card"><h4>백업 파일</h4><p>사진까지 포함한 전체 입력을 .json 파일로 저장하고, 다른 기기에서 불러옵니다.</p><button class="btn p" data-act="backup">백업 파일 받기</button> <label class="btn">백업 불러오기<input type="file" accept=".json,application/json" data-import="1" style="display:none"></label></div>
- <div class="card"><h4>예시 자료 · 초기화</h4><p>업종별 예시 자료(가상의 검증용 표본)를 불러와 화면을 둘러볼 수 있습니다. 불러오면 현재 입력이 바뀌니 먼저 백업하세요.</p><select id="sampleKind" style="margin-bottom:6px">${Object.entries(SAMPLES).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join("")}</select><div class="row"><button class="btn" data-act="sample">예시 자료 불러오기</button> <button class="btn d" data-act="reset">모두 지우기</button></div></div></div>
- <div class="multi-sec"><h3>여러 담당자가 나눠 입력하기 (부서별 제출 → 병합)</h3>
+V.data=()=>{ const parts={exp:`<div class="card"><h4>보고서·엑셀 내보내기</h4><p><b>엑셀(.xlsx)</b> — 모든 양식을 시트별로 담습니다(계산 결과 포함, 사진 제외). 기록 보존(3년)용.<br><b>워드(.docx) · 한글(.hwpx)</b> — 제출·결재용 보고서 형식(가로 A4)으로 사업장 개요, 종합 의견, 유해요인조사, 위험성평가표, 개선 전후 사진, 근로자 참여 기록을 담습니다. 한글 2014 이상에서 열립니다.</p><div class="row"><button class="btn p" data-act="xlsx">엑셀 (.xlsx)</button> <button class="btn p" data-act="docx">워드 (.docx)</button> <button class="btn p" data-act="hwpx">한글 (.hwpx)</button></div></div>`,xi:`<div class="card" id="xicard"><h4>엑셀에서 다시 불러오기 (점수·위험성평가)</h4><p>이 웹앱에서 내보낸 엑셀의 <b>RULA·REBA·NLE 시트</b>(점수)와 <b>위험성평가 시트</b>(감소대책·담당·목표일·완료일·개선 후 점수·남은 위험 수용)에 적은 내용을 <b>작업 ID·번호</b> 기준으로 다시 가져옵니다. 반영 전에 바뀌는 칸과 점수 변화를 보여 주며, 반영할 작업을 고를 수 있습니다. 엑셀에서 비워 둔 칸은 기본적으로 웹앱 값을 유지합니다.</p><div class="row"><label class="btn p">엑셀(.xlsx) 선택<input type="file" accept=".xlsx" data-xifile="1" style="display:none"></label>${XI_UNDO?`<button class="btn" data-xiundo="1">방금 반영 되돌리기</button>`:""}</div>${S.ui&&S.ui.xiMsg?`<p class="memo" style="color:#1F4E79"><b>${esc(S.ui.xiMsg)}</b></p>`:""}</div>`,backup:`<div class="card"><h4>백업 파일</h4><p>사진까지 포함한 전체 입력을 .json 파일 하나로 저장합니다. 보관용이자 <b>휴대폰에 처음 자료를 넣을 때</b> 보내는 파일입니다.</p><button class="btn p" data-act="backup">백업 파일 받기</button> <label class="btn">백업 불러오기<input type="file" accept=".json,application/json" data-import="1" style="display:none"></label></div>`,sample:`<div class="card"><h4>예시 자료 · 초기화</h4><p>업종별 예시 자료(가상의 검증용 표본)를 불러와 화면을 둘러볼 수 있습니다. 불러오면 현재 입력이 바뀌니 먼저 백업하세요.</p><select id="sampleKind" style="margin-bottom:6px">${Object.entries(SAMPLES).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join("")}</select><div class="row"><button class="btn" data-act="sample">예시 자료 불러오기</button> <button class="btn d" data-act="reset">모두 지우기</button></div></div>`,multi:`<div class="multi-sec"><h3>여러 담당자가 나눠 입력하기 (부서별 제출 → 병합)</h3>
  <div class="note">① 보건관리자가 부서·공정을 등록한 뒤 '백업 파일'을 담당자에게 나눠 줍니다. ② 담당자는 그 파일을 불러오고, 아래 '작성자 코드'(예: A, B, 협력)를 정한 뒤 자기 부서만 입력합니다. 새로 만드는 번호에 코드가 붙어(예: A-T03) 다른 담당자와 겹치지 않습니다. ③ 담당자는 '부서별 제출 파일'을 받아 보건관리자에게 보냅니다. ④ 보건관리자가 '제출 파일 병합'으로 합치면 그 부서 자료만 교체·추가되고 다른 부서 자료는 그대로 남습니다.</div>
  <div class="home"><div class="card"><h4>작성자 코드</h4><p>이 기기에서 새로 만드는 공정·작업·위험 번호 앞에 붙습니다. 비워 두면 P01·T01처럼 붙지 않습니다.</p>${I("ui.myCode",{ph:"예: A (1라인 담당)"})}</div>
  <div class="card"><h4>부서별 제출 파일 받기</h4><p>선택한 부서의 공정·작업·근골격계 평가·위험성평가·TBM·사진만 담은 파일(.json)을 받습니다.</p>${I("ui.packDept",{list:deptList()})}<div class="row"><button class="btn p" data-act="pack">제출 파일 받기</button></div></div>
- <div class="card"><h4>제출 파일 병합 (보건관리자)</h4><p>담당자가 보낸 제출 파일이나 다른 백업 파일을 현재 자료에 합칩니다. 같은 번호는 받은 파일 내용으로 바뀌고, 새 번호는 추가됩니다. 병합 전에 백업을 받아 두세요.</p><label class="btn p">제출 파일 병합<input type="file" accept=".json,application/json" data-merge="1" style="display:none"></label></div></div></div>
- <h3>안전 장치</h3><div class="home">${hook("data")}${baseCards()}</div>`;
+ <div class="card"><h4>제출 파일 병합 (보건관리자)</h4><p>담당자가 보낸 제출 파일이나 다른 백업 파일을 현재 자료에 합칩니다. 같은 번호는 받은 파일 내용으로 바뀌고, 새 번호는 추가됩니다. 병합 전에 백업을 받아 두세요.</p><label class="btn p">제출 파일 병합<input type="file" accept=".json,application/json" data-merge="1" style="display:none"></label></div></div></div>`}; return slData(parts); };
 function deptPack(did){ const ps=S.procs.filter(p=>p.dept===did), pids=new Set(ps.map(p=>p.id)); const ts=S.tasks.filter(t=>pids.has(t.proc)), tids=new Set(ts.map(t=>t.id));
  const oth=S.risk.other.filter(o=>pids.has(o.proc)); const pick=(o,set)=>Object.fromEntries(Object.entries(o||{}).filter(([k])=>set.has(k)));
  const rids=new Set([...tids,...oth.map(o=>o.id)]);
