@@ -1940,6 +1940,8 @@ function docModel(){ const B=[], rows=riskRows(), ts=validTasks(), procs=S.procs
  H("근로자 의견 및 반영 결과",2); T([2,1.2,1,3,3,1.4],["제출자·공정","접수일","반영 여부","의견","반영 결과","반영 위치"],S.opinions.map(x=>[v(x.who),v(x.date),v(x.state),v(x.text),v(x.result),v(x.where)]));
  H("결과 공유",2); T([1,1.2,1.6,5,1.2],["방법","일시","대상","공유 내용","확인자"],S.shares.map(x=>[v(x.how),v(x.date),v(x.to),v(x.what),v(x.chk)]));
  const tb=tbmList(); if(tb.length){ H("15. TBM 활동 기록"); T([1.2,1.2,1.6,1.8,1.6,.7,4,2],["일자","시간","장소","공정","진행자","참석","위험요인 → 안전대책","교육·전달"],tb.map(t=>[v(t.date),`${v(t.start)}~${v(t.end)}`,v(t.place),procName(t.proc),v(t.leader),v(t.n),(t.hz||[]).map(h=>`${h.hz} → ${h.act}`).join("\n"),v(t.edu)])); }
+ const tbp=tb.filter(t=>t.photos&&t.photos.p1).slice(-6).map(t=>({img:imgOf(t.photos.p1),cap:`TBM ${v(t.date)} · ${procName(t.proc)||""}`})); for(let i=0;i<tbp.length;i+=2)B.push({t:"pics",items:tbp.slice(i,i+2)});
+ { const lw=(S.lawlog||[]).filter(x=>x.what||x.change); H("기준·제도 변경 기록"); T([1.2,2,5,3.4,1.2],["반영일","항목","바뀐 내용","근거","확인자"],[...lw.map(x=>[v(x.date),v(x.what),v(x.change),v(x.basis),v(x.who)]),...(typeof APP_RULES!=="undefined"?APP_RULES:[]).map(r=>[r[0],"(웹앱) "+r[1],r[2],r[3],""])]); }
  if(S.contractors.length){ H("도급·협력업체"); T([2,3,2,1,1.6,1.6,1.6],["업체명","도급 작업","작업 장소","인원","계약 기간","현장 책임자","평가 번호"],S.contractors.map(x=>[v(x.name),v(x.work),procName(x.proc),v(x.n),v(x.period),v(x.boss),v(x.risk)])); }
  if(S.council.length){ H("산업안전보건위원회"); T([1.4,1.2,.8,3,4,1.2],["회차","일자","구분","안건","심의·의결","결과 게시"],S.council.map(x=>[v(x.no),v(x.date),v(x.kind),v(x.agenda),v(x.result),v(x.post)])); }
  P(`출력일 ${today()} · 이 문서는 웹앱 입력 내용에서 자동으로 만들어졌습니다.`,{small:1});
