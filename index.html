@@ -250,7 +250,8 @@ label.chk{display:flex;flex-direction:row;align-items:center;gap:6px;margin:4px 
  #sy .xi-tb td{border:0;padding:2px 0 2px 30px}#sy .xi-tb td.c{position:absolute;left:6px;top:8px;padding:0}#sy .xi-h{min-width:0;margin-right:4px}}
 
 #sy .sy-img{max-width:120px;max-height:90px;border-radius:4px;display:block}#sy tr.sy-g td{border-top:2px solid #9fb3c8}#sy .sy-cf{color:#8a5a00;font-size:12px}#sy label.chk{margin:3px 0}
-.st-bar.sy{background:#E8F0FA;border:1px solid #b9cde6}.st-bar.bad{display:block}/*SYNC-CSS-END*/
+.st-bar.sy{background:#E8F0FA;border:1px solid #b9cde6}.st-bar.bad{display:block}
+#sy .sy-del{background:#FFF5F5;border:1px solid #f3b4b0;border-radius:6px;padding:5px 8px}/*SYNC-CSS-END*/
 /*TODO-CSS*/.td-box{border:2px solid #1F4E79;border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff}.td-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}.td-h b{font-size:16px;color:#1F4E79}
 .td-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}.td-cat{border-radius:8px;padding:6px 8px;border:1px solid #dde3ea;background:#FAFBFD}.td-cat.td-r{border-left:5px solid #C00000}.td-cat.td-y{border-left:5px solid #E0A800}.td-cat.td-b{border-left:5px solid #2E75B6}
 .td-ct{font-size:13px;font-weight:700;margin-bottom:4px}.td-ct b{background:#1F4E79;color:#fff;border-radius:10px;padding:0 7px;margin-left:4px;font-size:12px}
@@ -280,7 +281,10 @@ tr.td-flash td{background:#FFF4CC!important;transition:background .4s}
 #nw .nw-big{border-radius:10px;padding:12px;margin:6px 0 10px;text-align:center;line-height:1.7;background:#EEF3FA}#nw .nw-big b{font-size:20px}#nw .nw-big.ok{background:#E2F0D9}#nw .nw-big.mid{background:#FFF4CC}#nw .nw-big.bad{background:#FDE2E1}
 #nw .bt td,#nw .bt th{text-align:center}
 .nwbtn{display:block;margin-top:3px;font-size:11px;padding:2px 6px;border:1px solid #2F75B5;border-radius:4px;background:#fff;color:#1F4E79;cursor:pointer;white-space:nowrap}.nwbtn.done{background:#E2F0D9;border-color:#70AD47}
-@media print{#nw{display:none}}/*NW-CSS-END*/
+@media print{#nw{display:none}}
+#nw .nw-multi{border-top:2px dashed #c9d3df;margin-top:12px;padding-top:6px}#nw .nw-sub{display:flex;gap:6px;align-items:center;border:1px solid #dde3ea;border-radius:8px;padding:6px 8px;margin:4px 0}#nw .nw-sub span{flex:1;display:flex;flex-direction:column;min-width:0}#nw .nw-sub small{color:#556}
+#nw .nw-sub button,#nw .nw-add{min-height:40px;border:2px solid #b8c6d6;border-radius:8px;background:#fff;font:inherit;font-weight:700;color:#1F3864;padding:0 10px}#nw .nw-add{width:100%;margin:6px 0;border-style:dashed;color:#2F75B5}
+.cli-note{display:block;font-size:11.5px;margin-top:3px}/*NW-CSS-END*/
 /*FP-CSS*/#tq{position:fixed;inset:0;z-index:1000;background:#fff;display:flex;flex-direction:column;font-size:15px;color:#1b2733;overflow:hidden}
 #tq .nw-top{display:flex;align-items:center;gap:10px;background:#1F3864;color:#fff;padding:10px 12px}#tq .nw-top button{background:none;border:1px solid #9fb3c8;color:#fff;border-radius:8px;width:40px;height:40px;font-size:18px}
 #tq .nw-top div{display:flex;flex-direction:column;min-width:0}#tq .nw-top span{font-size:12.5px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -543,7 +547,7 @@ V.reba=()=>head("REBA (전신 작업)","<b>현장에서는 작업 ID 아래 [그
 V.nle=()=>head("NLE 들기 지수 (NIOSH 들기 작업 기준)","H 수평거리, V 수직높이, D 이동거리(cm), A 비대칭각(°), 빈도(회/분), 작업시간 구분, 손잡이 상태를 넣으면 빈도계수(FM)는 NIOSH 표에서 자동으로 찾습니다(0.2회/분 미만은 0.2, 표 사이 빈도는 NIOSH 매뉴얼대로 선형 보간). RWL = 23kg × HM × VM × DM × AM × FM × CM, LI = 중량 ÷ RWL. <br><span class=\"memo\">기준: NIOSH Applications Manual for the Revised NIOSH Lifting Equation (Pub. 94-110, 2021 개정) — FM·CM 표와 계수식 대조 완료(2026-11-25).</span>")+
  `<div class="wrap"><table><tr><th>작업 ID</th><th>단위작업명</th><th class="wr">중량<br>(kg)</th><th class="wr">H<br>(cm)</th><th class="wr">V<br>(cm)</th><th class="wr">D<br>(cm)</th><th class="wr">A<br>(°)</th><th class="wr">빈도<br>(회/분)</th><th>작업시간</th><th>손잡이</th><th>HM</th><th>VM</th><th>DM</th><th>AM</th><th>FM</th><th>CM</th><th>RWL(kg)</th><th>LI</th><th>판정</th><th>평가자·일</th></tr>
  ${pgMap("nle",vTasks(),t=>{const i=S.tasks.indexOf(t),b=`tasks.${i}.nle`,r=nle(t.nle,t.kg)||{};const lvc=r.lv?(r.lv.startsWith("고위험")?"g-고위험":r.lv.startsWith("위험")?"g-위험증가":"g-안전"):"";
-  return `<tr><td class="auto b">${t.id}<button class="nwbtn noprint ${t.nle&&t.nle.via==="안내 입력"?"done":""}" data-nwopen="${i}">${t.nle&&t.nle.via==="안내 입력"?"안내 ✓ 다시":"안내 따라 입력"}</button></td><td class="auto l">${esc(t.name)}</td><td class="auto">${esc(t.kg??"")}</td>${["H","V","D","A","F"].map(k=>`<td>${I(`${b}.${k}`,{num:1,min:0})}</td>`).join("")}<td>${I(b+".dur",{list:DUR})}</td><td>${I(b+".coup",{list:["양호","보통","불량"]})}</td>${["HM","VM","DM","AM","FM","CM","RWL","LI"].map(k=>`<td class="auto ${k==="LI"?"b":""}">${fmt(r[k])}</td>`).join("")}<td class="auto ${lvc}" style="min-width:120px">${r.lv||""}</td><td>${I(b+".who")}</td></tr>`}).join("")}</table></div>`;
+  return `<tr><td class="auto b">${t.id}<button class="nwbtn noprint ${t.nle&&t.nle.via==="안내 입력"?"done":""}" data-nwopen="${i}">${t.nle&&t.nle.via==="안내 입력"?"안내 ✓ 다시":"안내 따라 입력"}</button></td><td class="auto l">${esc(t.name)}</td><td class="auto">${esc(t.kg??"")}</td>${["H","V","D","A","F"].map(k=>`<td>${I(`${b}.${k}`,{num:1,min:0})}</td>`).join("")}<td>${I(b+".dur",{list:DUR})}</td><td>${I(b+".coup",{list:["양호","보통","불량"]})}</td>${["HM","VM","DM","AM","FM","CM","RWL","LI"].map(k=>`<td class="auto ${k==="LI"?"b":""}">${fmt(r[k])}</td>`).join("")}<td class="auto ${lvc}" style="min-width:120px">${r.lv||""}${(()=>{ const j=(t.nle&&(t.nle.sub||[]).length)?nleJob(t):null; return j?`<b class="cli-note">복합 ${j.n}개 · CLI ${j.LI==null?"계산 전":fmt(j.LI)}${j.LI!=null?" — "+esc(j.lv):""}</b>`:""; })()}</td><td>${I(b+".who")}</td></tr>`}).join("")}</table></div>`;
 V.symp=()=>head("근골격계 증상조사 집계 (공정별 인원만)","개인별 응답은 종이 설문과 '증상조사 원자료(보건관리 담당자 전용)' 엑셀 파일에서 관리하고, 여기에는 공정별 집계 인원만 입력합니다. 관리대상자: 아픈 정도 '중간' 이상 + (통증 기간 1주일 이상 또는 빈도 1달에 1번 이상). 통증 호소자: 그중 '심한 통증' 이상.")+
  `<div class="row noprint" style="background:#EEF3FA;padding:8px 10px;border-radius:6px"><b>증상조사 원자료 파일에서 불러오기</b><label class="btn p">원자료 엑셀(.xlsx) 선택<input type="file" accept=".xlsx" data-rawxlsx="1" style="display:none"></label><span class="memo">'증상조사 원자료(보건관리 담당자 전용)' 파일의 '응답 입력' 시트를 읽어 공정별 인원만 계산해 채웁니다. 개인 응답은 저장되지 않습니다.</span>${S.sympSrc?`<span style="font-size:12px">최근 불러옴: <b>${esc(S.sympSrc.file)}</b> (${esc(S.sympSrc.date)}, 응답 ${S.sympSrc.rows}건)</span>`:""}</div>
  ${rawPreview()}
@@ -754,7 +758,7 @@ V.contract=()=>{ const ct=S.contractors, cm=S.cmeet;
  ${ct.length&&!cm.length?`<div class="warn">협력업체가 등록되어 있지만 협의체 회의 기록이 없습니다.</div>`:""}`; };
 // ── 사진 판독 예비 평가 ──
 const PRETOOL=["RULA","REBA","OWAS","NLE","기타"];
-function formalOf(t){ const p=(t.pre||{}).tool; if(p==="RULA"){const r=rula(t.rula);return r?`RULA ${r.fin}점 / 조치수준 ${r.lv}`:"";} if(p==="REBA"){const r=reba(t.reba);return r?`REBA ${r.fin}점 / ${r.lv}`:"";} if(p==="NLE"){const r=t.nle&&nle(t.nle,t.kg);return r&&r.LI!=null?`NLE LI ${fmt(r.LI)} / ${r.lv}`:"";} return ""; }
+function formalOf(t){ const p=(t.pre||{}).tool; if(p==="RULA"){const r=rula(t.rula);return r?`RULA ${r.fin}점 / 조치수준 ${r.lv}`:"";} if(p==="REBA"){const r=reba(t.reba);return r?`REBA ${r.fin}점 / ${r.lv}`:"";} if(p==="NLE"){const r=nleJob(t);return r&&r.LI!=null?`NLE ${r.cli?"CLI":"LI"} ${fmt(r.LI)} / ${r.lv}`:"";} return ""; }
 function preLine(id){ const t=S.tasks.find(x=>x.id===id); const p=t&&t.pre; if(!p||!p.tool)return ""; const f=formalOf(t);
  return `<div class="memo" style="margin-bottom:3px">인간공학 평가 (예비): <b>${esc(p.tool)} ${esc(p.score??"")}${p.lv!==""&&p.lv!=null?" / 조치수준 "+esc(p.lv):""}</b> ${f?`→ 정식 평가 <b>${esc(f)}</b>`:'<span style="color:#C00000">— 정식 재평가 전</span>'}</div>`; }
 V.pre=()=>{ const ts=vTasks();
@@ -1048,8 +1052,8 @@ function fvItem(){ const rows=fvRows(); let k=rows.findIndex(r=>r.id===FV.id); i
    if(r.adjG||r.adjH)body+=`<div class="fv-note">위험성평가표에서 가능성·중대성을 따로 조정한 값이 있어, 아래 위험성은 조정값으로 계산됩니다.</div>`; }
   else body+=`<div class="fv-lab">가능성</div>${fvSeg(`${b}.G`,r.m.G,R.lik.map(fvShort),R.lik.map(fvDetail))}<div class="fv-lab">중대성</div>${fvSeg(`${b}.H`,r.m.H,R.sev.map(fvShort),R.sev.map(fvDetail))}`;
   body+=`<div class="fv-res">현재 위험성 ${fvGrade(r.J,r.I)}</div>`;
-  if(t){ const ru=rula(t.rula), rb=reba(t.reba), nl=t.nle&&nle(t.nle,t.kg);
-   body+=`<div class="fv-lab">자세·들기 평가</div><div class="fv-two fv-3b"><button class="fv-big" data-pwopen="rula:${ti}"><b>RULA</b><span>${ru?`${ru.fin}점 · 조치수준 ${ru.lv}`:"그림으로 평가"}</span></button><button class="fv-big" data-pwopen="reba:${ti}"><b>REBA</b><span>${rb?`${rb.fin}점 · ${rb.lv}`:"그림으로 평가"}</span></button><button class="fv-big" data-nwopen="${ti}"><b>NLE</b><span>${nl&&nl.LI!=null?`LI ${fmt(nl.LI)}`:"들기 안내 입력"}</span></button></div>${nl&&nl.LI!=null?`<div class="fv-det">NLE 들기 지수 ${fmt(nl.LI)} — ${esc(nl.lv)}</div>`:""}${t.pre&&t.pre.tool?`<div class="fv-det">사진 판독 예비: ${esc(t.pre.tool)} ${esc(t.pre.score??"")}${t.pre.lv!==""&&t.pre.lv!=null?` / 조치수준 ${esc(t.pre.lv)}`:""}</div>`:""}
+  if(t){ const ru=rula(t.rula), rb=reba(t.reba), nl=typeof nleJob==="function"?nleJob(t):(t.nle&&nle(t.nle,t.kg));
+   body+=`<div class="fv-lab">자세·들기 평가</div><div class="fv-two fv-3b"><button class="fv-big" data-pwopen="rula:${ti}"><b>RULA</b><span>${ru?`${ru.fin}점 · 조치수준 ${ru.lv}`:"그림으로 평가"}</span></button><button class="fv-big" data-pwopen="reba:${ti}"><b>REBA</b><span>${rb?`${rb.fin}점 · ${rb.lv}`:"그림으로 평가"}</span></button><button class="fv-big" data-nwopen="${ti}"><b>NLE</b><span>${nl&&nl.LI!=null?`${nl.cli?"CLI":"LI"} ${fmt(nl.LI)}`:"들기 안내 입력"}</span></button></div>${nl&&nl.LI!=null?`<div class="fv-det">${nl.cli?`NLE 복합 들기 지수 CLI (들기 ${nl.n}개)`:"NLE 들기 지수"} ${fmt(nl.LI)} — ${esc(nl.lv)}</div>`:""}${t.pre&&t.pre.tool?`<div class="fv-det">사진 판독 예비: ${esc(t.pre.tool)} ${esc(t.pre.score??"")}${t.pre.lv!==""&&t.pre.lv!=null?` / 조치수준 ${esc(t.pre.lv)}`:""}</div>`:""}
    <div class="fv-lab">작업 조건</div><div class="fv-three"><label>노출(시간/일)${fvIn(`tasks.${ti}.hours`,{num:1})}</label><label>횟수(회/일)${fvIn(`tasks.${ti}.reps`,{num:1})}</label><label>중량(kg)${fvIn(`tasks.${ti}.kg`,{num:1})}</label></div>`; }
   else body+=`<div class="fv-lab">현재 안전조치</div>${fvIn(b+".ctrl",{area:1,rows:2,ph:"지금 하고 있는 조치 (예: 안전블록 사용)"})}`; }
  if(FV.tab==="meas"){ const Ql=r.zone===1?FV_B:R.lik.map(fvShort), Rl=r.zone===1?FV_A:R.sev.map(fvShort);
@@ -1216,16 +1220,22 @@ function baseMigrate(){ const from=+S.schema||1;
  { const K0=JSON.parse(keep); if(BOOTING&&K0._saved&&hasData(K0)) snapAdd(`자료 버전 ${from} → ${SCHEMA} 변환 전`,keep); }
  mtBase(); }
 // ─ 칸별 수정 시각 (_mt) ─ 배열 중 id가 있는 항목은 '#id', 없는 항목은 '@번호'로 표시해 기기마다 순서가 달라도 같은 칸을 찾음
-const MT_SKIP=new Set(["ui","_mt","_saved","schema","_sync"]);
+const MT_SKIP=new Set(["ui","_mt","_saved","schema","_sync","_del"]);
 function flat(o,pre,out){ if(Array.isArray(o)){ if(o.length&&o.every(x=>x&&typeof x==="object"&&!Array.isArray(x))){ o.forEach((x,i)=>flat(x,pre+(x.id?"#"+x.id:"@"+i)+".",out)); } else out[pre.slice(0,-1)]=JSON.stringify(o); return out; }
  if(o&&typeof o==="object"){ for(const k in o){ if(!pre&&MT_SKIP.has(k))continue; flat(o[k],pre+k+".",out); } return out; }
  if(pre)out[pre.slice(0,-1)]=o; return out; }
 const flatS=()=>flat(S,"",{});
-function mtBase(){ LAST=flatS(); if(!S._mt)S._mt={}; }
+function mtBase(){ LAST=flatS(); LASTEL=null; if(!S._mt)S._mt={}; }
+// id가 있는 항목(작업·공정·위험·TBM 등)이 통째로 지워지면 _del에 '지운 시각'을 남겨 다른 기기에 전달
+function elKeys(flatObj){ const out=new Set(); for(const k in flatObj){ let i=k.indexOf("#"); while(i>=0){ const j=k.indexOf(".",i); if(j<0)break; out.add(k.slice(0,j)); i=k.indexOf("#",j); } } return out; }
+let LASTEL=null;
 function mtTrack(){ if(!LAST||!S._mt)return; const now=Date.now(), cur=flatS();
  for(const k in cur) if(cur[k]!==LAST[k]) S._mt[k]=now;
  for(const k in LAST) if(!(k in cur)) S._mt[k]=now;
- LAST=cur; }
+ const el=elKeys(cur); if(!LASTEL)LASTEL=elKeys(LAST); if(!S._del)S._del={};
+ LASTEL.forEach(e=>{ if(!el.has(e))S._del[e]=now; });
+ el.forEach(e=>{ if(S._del[e])delete S._del[e]; });
+ LAST=cur; LASTEL=el; }
 function keySeg(k){ const out=[]; let buf=""; for(const ch of k){ if(ch==="."){ out.push(buf); buf=""; } else buf+=ch; } out.push(buf); return out; }
 // 안정 키 → 현재 자료 위치. make=true면 빠진 객체를 만듦(배열 id 항목은 만들지 않음 — 새 항목은 별도로 추가)
 function keyResolve(k,make){ const seg=keySeg(k); let o=S; const path=[];
@@ -1327,7 +1337,7 @@ const SY_F={K:"감소대책",L:"대책 위계",Lnote:"대책 위계 상세",M:"�
  ua:"상완",la:"하완",wr:"손목",wt:"손목 비틀림",mA:"근육 사용 A",fA:"힘·하중 A",neck:"목",trunk:"몸통",legs:"다리",mB:"근육 사용 B",fB:"힘·하중 B",load:"하중·힘",coup:"손잡이",act:"활동",D:"이동 거리",F:"빈도",dur:"작업시간"};
 const SY_T={rula:"RULA",reba:"REBA",nle:"NLE",pre:"예비 평가"};
 const devName=()=>{ try{ return localStorage.getItem("dev|"+KEY)||""; }catch(e){ return ""; } };
-function syPending(){ const since=(S._sync&&S._sync.sentAt)||0; return Object.entries(S._mt||{}).filter(([k,t])=>t>since&&!k.startsWith("history")).map(([k])=>k); }
+function syPending(){ const since=(S._sync&&S._sync.sentAt)||0; return Object.entries(S._mt||{}).filter(([k,t])=>t>since&&!k.startsWith("history")).map(([k])=>k).concat(Object.entries(S._del||{}).filter(([k,t])=>t>since).map(([k])=>"삭제:"+k)); }
 function syLabel(k){ const seg=keySeg(k); const id=x=>x&&(x[0]==="#"||x[0]==="@")?x.slice(1):x; let who="",what="";
  const tName=i=>{ const t=S.tasks.find(x=>x.id===i); return t?`${i} ${t.name||""}`:i; };
  if(seg[0]==="tasks"){ who=tName(id(seg[1])); what=(SY_T[seg[2]]?SY_T[seg[2]]+" ":"")+(SY_F[seg[seg.length-1]]||seg.slice(2).join(".")); }
@@ -1343,9 +1353,10 @@ function syBuild(all){ const since=all?0:((S._sync&&S._sync.sentAt)||0); const i
  Object.entries(S._mt||{}).forEach(([k,t])=>{ if(t<=since)return; const v=keyGet(k); const r=keyResolve(k,false); const isArr=!!(r&&Array.isArray(r.o[r.k]));
   items.push([k,v===undefined?null:v,t,isArr?1:0]);
   const seg=keySeg(k); let pre=[]; for(const s of seg){ pre.push(s); if(s[0]==="#"){ const ek=pre.join("."); if(!els[ek]){ const er=keyResolve(ek,false); if(er)els[ek]=JSON.stringify(er.o[er.k]); } } } });
- return {kind:"msd-changes",v:1,app:KEY,schema:SCHEMA,site:S.site&&S.site.name||"",dev:devName(),at:Date.now(),since,items,els}; }
+ const dels=Object.entries(S._del||{}).filter(([k,t])=>t>since);
+ return {dels,kind:"msd-changes",v:1,app:KEY,schema:SCHEMA,site:S.site&&S.site.name||"",dev:devName(),at:Date.now(),since,items,els}; }
 async function sySend(all){ let nm=devName(); if(!nm){ nm=(prompt("보내는 사람 이름 (예: 정비반장 이○○) — 이 기기에 기억됩니다","")||"").trim(); if(!nm)return; try{ localStorage.setItem("dev|"+KEY,nm); }catch(e){} }
- const P=syBuild(all); if(!P.items.length){ alert("보낼 변경 내용이 없습니다."); return; }
+ const P=syBuild(all); if(!P.items.length&&!(P.dels||[]).length){ alert("보낼 변경 내용이 없습니다."); return; }
  const d=new Date(), st=`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}-${String(d.getHours()).padStart(2,"0")}${String(d.getMinutes()).padStart(2,"0")}`;
  const fname=`변경분_${nm.replace(/[\\/:*?"<>|\s]/g,"")}_${st}.json`, blob=new Blob([JSON.stringify(P)],{type:"application/json"});
  let shared=false; try{ const f=new File([blob],fname,{type:"application/json"}); if(navigator.canShare&&navigator.canShare({files:[f]})){ await navigator.share({files:[f],title:fname}); shared=true; } }catch(e){ if(e&&e.name==="AbortError")return; }
@@ -1356,7 +1367,10 @@ function syParse(P,file){ const rows=[], news={}, warn=[];
  if(!P||P.kind!=="msd-changes"){ return {err:"변경분 파일이 아닙니다. 휴대폰의 '변경분 보내기'로 만든 파일을 고르세요."}; }
  if(P.app!==KEY)warn.push("다른 웹앱 파일(사업장)에서 만든 변경분입니다. 같은 번호의 칸에만 반영되니 내용을 꼭 확인하세요.");
  if((P.schema||1)>SCHEMA)warn.push("더 새로운 버전 웹앱에서 만든 파일입니다. 이 웹앱에 없는 칸은 건너뜁니다.");
- (P.items||[]).forEach(([k,v,t,isArr])=>{ const seg=keySeg(k); let pre=[], missing=null;
+ const dels=[]; (P.dels||[]).forEach(([e,t])=>{ const r=keyResolve(e,false); if(!r)return; let mine=0; for(const k in (S._mt||{})) if(k.startsWith(e+".")&&S._mt[k]>mine)mine=S._mt[k];
+  const el=r.o[r.k]||{}; const L=syLabel(e+".name"); dels.push({k:e,t,mine,newer:t>=mine,on:t>=mine,who:L.who||e,name:el.name||el.task||el.cause||el.date||""}); });
+ const delSet=new Set(dels.map(d=>d.k));
+ (P.items||[]).forEach(([k,v,t,isArr])=>{ if([...delSet].some(d=>k.startsWith(d+".")))return; const seg=keySeg(k); let pre=[], missing=null;
   for(const s of seg){ pre.push(s); if(s[0]==="#"&&!keyResolve(pre.join("."),false)){ missing=pre.join("."); break; } }
   if(missing){ if(P.els&&P.els[missing]){ news[missing]=news[missing]||{k:missing,el:JSON.parse(P.els[missing]),n:0}; news[missing].n++; } return; }
   const cur=keyGet(k); if(String(cur??"")===String(v??""))return;
@@ -1364,16 +1378,16 @@ function syParse(P,file){ const rows=[], news={}, warn=[];
   const ord=/(^|\.)@\d+/.test(k); rows.push({k,v,t,isArr,cur,mine,newer,ord,on:newer&&!ord,...L}); });
  Object.values(news).forEach(x=>{ x.on=true; const a=keySeg(x.k); x.arr=a.slice(0,-1).join("."); x.id=a[a.length-1].slice(1); x.name=x.el.name||x.el.task||x.el.cause||""; });
  rows.sort((a,b)=>a.who<b.who?-1:a.who>b.who?1:0);
- return {rows,news:Object.values(news),warn,file:file.name,from:P.dev||"이름 없음",at:P.at,n:(P.items||[]).length}; }
+ return {dels,rows,news:Object.values(news),warn,file:file.name,from:P.dev||"이름 없음",at:P.at,n:(P.items||[]).length}; }
 function syRender(){ let el=document.getElementById("sy"); if(!SY){ if(el)el.remove(); return; } if(!el){ el=document.createElement("div"); el.id="sy"; el.className="xi-like"; document.body.appendChild(el); }
- const R=SY.rows, n=R.filter(r=>r.on).length+SY.news.filter(x=>x.on).length, cf=R.filter(r=>!r.newer).length; let last="";
+ const R=SY.rows, n=R.filter(r=>r.on).length+SY.news.filter(x=>x.on).length+(SY.dels||[]).filter(d=>d.on).length, cf=R.filter(r=>!r.newer).length; let last="";
  const fm=t=>{ const d=new Date(t); return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`; };
  el.innerHTML=`<div class="xi-box"><div class="xi-top"><b>변경분 받기 — ${esc(SY.from)} (${fm(SY.at)} 보냄)</b><button data-syx="1">✕</button></div><div class="xi-body">
- <div class="xi-sum"><span>파일: ${esc(SY.file)}</span><span class="b">바뀌는 칸 ${R.length}</span>${SY.news.length?`<span class="b">새 항목 ${SY.news.length}</span>`:""}${cf?`<span class="y">이 PC가 더 나중에 고친 칸 ${cf}</span>`:""}</div>
+ <div class="xi-sum"><span>파일: ${esc(SY.file)}</span><span class="b">바뀌는 칸 ${R.length}</span>${(SY.dels||[]).length?`<span class="r">지운 항목 ${SY.dels.length}</span>`:""}${SY.news.length?`<span class="b">새 항목 ${SY.news.length}</span>`:""}${cf?`<span class="y">이 PC가 더 나중에 고친 칸 ${cf}</span>`:""}</div>
  ${SY.warn.map(w=>`<div class="st-bar warn">${esc(w)}</div>`).join("")}
- ${SY.news.length?`<h4>새로 추가되는 항목</h4>${SY.news.map((x,i)=>`<label class="chk"><input type="checkbox" data-synew="${i}" ${x.on?"checked":""}> <b>${esc(x.id)}</b> ${esc(x.name)} <span class="memo">(${esc(x.arr)})</span></label>`).join("")}`:""}
- ${R.length?`<table class="xi-tb"><tr><th class="c"><input type="checkbox" data-syall="1" ${R.every(r=>r.on)?"checked":""}></th><th>항목</th><th>칸</th><th>이 PC 값</th><th>받은 값</th></tr>${R.map((r,i)=>{ const h=r.who!==last; last=r.who; return `<tr class="${r.on?"":"off"} ${h?"sy-g":""}"><td class="c"><input type="checkbox" data-syon="${i}" ${r.on?"checked":""}></td><td>${h?`<b>${esc(r.who)}</b>`:""}</td><td>${esc(r.what)}${r.newer?"":`<div class="sy-cf">이 PC에서 ${fm(r.mine)}에 더 나중에 고침 — 기본 제외</div>`}${r.ord?`<div class="sy-cf">순서로만 구분되는 항목이라 다른 줄일 수 있음 — 확인 후 선택</div>`:""}</td><td>${syShow(r.cur)}</td><td><b>${syShow(r.v)}</b><div class="memo">${fm(r.t)} 수정</div></td></tr>`; }).join("")}</table>`:(SY.news.length?"":`<p>이 PC와 다른 값이 없습니다. 이미 반영된 변경분입니다.</p>`)}
- <p class="xi-note">반영 직전 자료는 '복원 지점'에 자동 보관되며, 반영 직후에는 '방금 반영 되돌리기'도 쓸 수 있습니다. 삭제한 항목은 전달되지 않습니다(필요하면 PC에서 직접 지우세요).</p></div>
+ ${(SY.dels||[]).length?`<h4>휴대폰에서 지운 항목</h4>${SY.dels.map((d,i)=>`<label class="chk sy-del"><input type="checkbox" data-sydel="${i}" ${d.on?"checked":""}> <b>${esc(d.who)}</b> ${esc(d.name&&!String(d.who).includes(d.name)?d.name:"")} <span class="memo">— 지움 ${new Date(d.t).toLocaleString("ko-KR")}${d.newer?"":" · 이 PC에서 그 뒤에 고쳐서 기본 제외"}</span></label>`).join("")}`:""}${SY.news.length?`<h4>새로 추가되는 항목</h4>${SY.news.map((x,i)=>`<label class="chk"><input type="checkbox" data-synew="${i}" ${x.on?"checked":""}> <b>${esc(x.id)}</b> ${esc(x.name)} <span class="memo">(${esc(x.arr)})</span></label>`).join("")}`:""}
+ ${R.length?`<table class="xi-tb"><tr><th class="c"><input type="checkbox" data-syall="1" ${R.every(r=>r.on)?"checked":""}></th><th>항목</th><th>칸</th><th>이 PC 값</th><th>받은 값</th></tr>${R.map((r,i)=>{ const h=r.who!==last; last=r.who; return `<tr class="${r.on?"":"off"} ${h?"sy-g":""}"><td class="c"><input type="checkbox" data-syon="${i}" ${r.on?"checked":""}></td><td>${h?`<b>${esc(r.who)}</b>`:""}</td><td>${esc(r.what)}${r.newer?"":`<div class="sy-cf">이 PC에서 ${fm(r.mine)}에 더 나중에 고침 — 기본 제외</div>`}${r.ord?`<div class="sy-cf">순서로만 구분되는 항목이라 다른 줄일 수 있음 — 확인 후 선택</div>`:""}</td><td>${syShow(r.cur)}</td><td><b>${syShow(r.v)}</b><div class="memo">${fm(r.t)} 수정</div></td></tr>`; }).join("")}</table>`:((SY.news.length||(SY.dels||[]).length)?"":`<p>이 PC와 다른 값이 없습니다. 이미 반영된 변경분입니다.</p>`)}
+ <p class="xi-note">반영 직전 자료는 '복원 지점'에 자동 보관되며, 반영 직후에는 '방금 반영 되돌리기'도 쓸 수 있습니다. 휴대폰에서 지운 항목은 위 '지운 항목'에서 확인한 뒤 반영됩니다.</p></div>
  <div class="xi-foot"><button data-syx="1">취소</button><button class="p" data-syapply="1" ${n?"":"disabled"}>선택한 ${n}건 반영</button></div></div>`; }
 async function syLoad(files){ const list=[]; for(const f of files){ try{ list.push(syParse(JSON.parse(await f.text()),f)); }catch(e){ list.push({err:`${f.name}: 파일을 읽지 못했습니다.`}); } }
  const bad=list.filter(x=>x.err); if(bad.length)alert(bad.map(x=>x.err).join("\n"));
@@ -1381,11 +1395,13 @@ async function syLoad(files){ const list=[]; for(const f of files){ try{ list.pu
  // 여러 파일을 한 번에: 같은 칸은 더 나중 수정만 남김
  const by={}; ok.forEach(x=>x.rows.forEach(r=>{ if(!by[r.k]||by[r.k].t<r.t)by[r.k]=Object.assign(r,{from:x.from}); }));
  const nw={}; ok.forEach(x=>x.news.forEach(z=>{ if(!nw[z.k])nw[z.k]=z; }));
- SY={rows:Object.values(by).sort((a,b)=>a.who<b.who?-1:a.who>b.who?1:0),news:Object.values(nw),warn:[...new Set(ok.flatMap(x=>x.warn))],file:ok.map(x=>x.file).join(", "),from:[...new Set(ok.map(x=>x.from))].join(", "),at:Math.max(...ok.map(x=>x.at||0))};
+ const dl={}; ok.forEach(x=>(x.dels||[]).forEach(d=>{ if(!dl[d.k]||dl[d.k].t<d.t)dl[d.k]=Object.assign(d,{from:x.from}); })); Object.keys(dl).forEach(k=>{ delete by[k]; Object.keys(by).forEach(r=>{ if(r.startsWith(k+"."))delete by[r]; }); });
+ SY={dels:Object.values(dl),rows:Object.values(by).sort((a,b)=>a.who<b.who?-1:a.who>b.who?1:0),news:Object.values(nw),warn:[...new Set(ok.flatMap(x=>x.warn))],file:ok.map(x=>x.file).join(", "),from:[...new Set(ok.map(x=>x.from))].join(", "),at:Math.max(...ok.map(x=>x.at||0))};
  syRender(); }
 function syApply(){ SY_UNDO=JSON.stringify(S); beforeBig(`변경분 반영 전 (${SY.from})`); let n=0; const keep={};
  SY.news.filter(x=>x.on).forEach(x=>{ const r=keyResolve(x.arr,true); if(r){ const arr=r.o[r.k]; if(Array.isArray(arr)&&!arr.some(e=>e&&e.id===x.id)){ arr.push(x.el); n++; } } });
  SY.rows.filter(r=>r.on).forEach(r=>{ if(keySet(r.k,r.v,r.isArr)){ keep[r.k]=r.t; n++; } });
+ (SY.dels||[]).filter(d=>d.on).forEach(d=>{ const r=keyResolve(d.k,false); if(!r||!Array.isArray(r.o))return; r.o.splice(r.k,1); n++; const m=d.k.match(/^(tasks|risk\.other)\.#(.+)$/); if(m){ if(m[1]==="tasks"&&S.risk&&S.risk.msd)delete S.risk.msd[m[2]]; if(S.risk&&S.risk.photos)delete S.risk.photos[m[2]]; } });
  try{ mtTrack(); Object.assign(S._mt,keep); }catch(e){ logErr("변경분 반영",e); }
  S._sync=Object.assign({},S._sync); S._sync.recv=[{from:SY.from,at:Date.now(),n}].concat(S._sync.recv||[]).slice(0,30);
  S.ui.syMsg=`${SY.from}의 변경분 ${n}건을 반영했습니다 (${today()}).`; SY=null; syRender(); save(); render(); }
@@ -1400,7 +1416,7 @@ HOOK.data.push(["변경분 주고받기",syCard,"sync"]);
 HOOK.fvTop.push(["변경분 알림",syStrip,"sync"]);
 document.addEventListener("change",e=>{ const d=e.target.dataset||{};
  if(d.syfile!=null){ const fs=[...(e.target.files||[])]; e.target.value=""; if(fs.length)syLoad(fs); return; }
- if(!SY)return; if(d.syon!=null){ SY.rows[+d.syon].on=e.target.checked; syRender(); } if(d.synew!=null){ SY.news[+d.synew].on=e.target.checked; syRender(); } if(d.syall!=null){ SY.rows.forEach(r=>r.on=e.target.checked); syRender(); } },true);
+ if(!SY)return; if(d.syon!=null){ SY.rows[+d.syon].on=e.target.checked; syRender(); } if(d.synew!=null){ SY.news[+d.synew].on=e.target.checked; syRender(); } if(d.sydel!=null){ SY.dels[+d.sydel].on=e.target.checked; syRender(); } if(d.syall!=null){ SY.rows.forEach(r=>r.on=e.target.checked); syRender(); } },true);
 document.addEventListener("click",e=>{ const q=s=>e.target.closest(s);
  if(q("[data-sysend]")){ e.preventDefault(); sySend(false); return; }
  if(q("[data-syall2]")){ e.preventDefault(); if(confirm("지금까지 이 기기에서 고친 모든 칸을 다시 보낼까요?"))sySend(true); return; }
@@ -1475,6 +1491,17 @@ document.addEventListener("change",e=>{ if(!e.target.dataset||e.target.dataset.d
 /*DEPLOY-END*/
 // ── ⑥ NLE 안내 입력 (NW) ── 줄자로 재는 위치를 그림으로 보여 주고 한 단계씩 입력, RWL·LI 실시간 계산
 let NW=null;
+// 복합 들기 지수(CLI) — NIOSH Pub. 94-110 (2021) §2.4: FIRWL(FM=1)·STRWL, FILI·STLI, STLI 큰 순으로 재번호
+// CLI = STLI1 + Σ FILIk × (1/FM(F1+…+Fk) − 1/FM(F1+…+Fk−1)). 누적 빈도 FM의 작업시간은 작업 전체 구분(주 작업), 높이(V)는 더해지는 들기의 V를 씀
+function cliCalc(main,kg,subs,dur){ const all=[Object.assign({name:"주 들기",kg},main)].concat((subs||[]).map(x=>Object.assign({},x)));
+ const L=[]; for(const x of all){ const r=nle(Object.assign({},x,{dur}),x.kg); if(!r||r.RWL==null||!isNum(x.kg)||!isNum(x.F))return {ok:false,n:all.length};
+  const FI=23*r.HM*r.VM*r.DM*r.AM*r.CM; L.push({x,r,F:Math.max(+x.F,0.2),FIRWL:FI,STRWL:r.RWL,FILI:FI>0?+x.kg/FI:Infinity,STLI:r.RWL>0?+x.kg/r.RWL:Infinity}); }
+ L.sort((a,b)=>b.STLI-a.STLI); let CLI=L[0].STLI, cum=L[0].F;
+ for(let k=1;k<L.length;k++){ const V=+L[k].x.V, f1=fm(cum+L[k].F,dur,V), f0=fm(cum,dur,V); L[k].inc=(f1>0&&f0>0)?L[k].FILI*(1/f1-1/f0):Infinity; CLI+=L[k].inc; cum+=L[k].F; }
+ const lv=!isFinite(CLI)?"고위험 (빈도 한계 초과 — 작업 재설계)":CLI<=1?"안전 (CLI≤1)":CLI<=3?"위험 증가 (1<CLI≤3)":"고위험 (CLI>3)";
+ return {ok:true,n:L.length,list:L,CLI,lv,Fsum:cum}; }
+function nleJob(t){ if(!t||!t.nle)return null; const subs=t.nle.sub||[]; if(!subs.length){ const r=nle(t.nle,t.kg); return r?Object.assign({cli:false},r):null; }
+ const c=cliCalc(t.nle,t.kg,subs,t.nle.dur); const r=nle(t.nle,t.kg)||{}; return c.ok?Object.assign({},r,{cli:true,LI:c.CLI,lv:c.lv,n:c.n,C:c}):Object.assign({},r,{cli:true,LI:null,lv:"복합 들기 입력 중 (빈 항목 있음)",n:c.n}); }
 const NW_STEPS=["kg","H","V","D","A","F","coup","fin"];
 const NW_T={kg:"물건 무게",H:"H 수평거리 — 발목 가운데에서 손까지",V:"V 수직높이 — 바닥에서 손까지 (들기 시작할 때)",D:"D 이동거리 — 들어서 내려놓기까지 높이 차이",A:"A 비대칭 각도 — 몸을 비트는 정도",F:"들기 빈도와 작업시간",coup:"손잡이 상태",fin:"결과 확인·저장"};
 function nwFig(k){ const P=(x,y)=>`${x},${y}`; const st='stroke="#1F3864" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"';
@@ -1491,39 +1518,50 @@ function nwFig(k){ const P=(x,y)=>`${x},${y}`; const st='stroke="#1F3864" stroke
  if(k==="coup")return `<svg viewBox="0 0 300 120"><g><rect x="14" y="40" width="74" height="48" rx="4" fill="#F4B183" stroke="#9C5A2A" stroke-width="2.5"/><rect x="24" y="52" width="18" height="8" rx="4" fill="#fff" stroke="#9C5A2A"/><rect x="60" y="52" width="18" height="8" rx="4" fill="#fff" stroke="#9C5A2A"/><text x="51" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#375623">양호</text></g><g><rect x="113" y="40" width="74" height="48" rx="4" fill="#F4B183" stroke="#9C5A2A" stroke-width="2.5"/><path d="M113,74 h74" stroke="#9C5A2A" stroke-width="2"/><text x="150" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#7a5c00">보통</text></g><g><path d="M222,88 C214,60 236,36 256,40 C284,46 290,74 276,88 Z" fill="#F4B183" stroke="#9C5A2A" stroke-width="2.5"/><text x="252" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#9B1C1C">불량</text></g><text x="150" y="24" text-anchor="middle" font-size="11" fill="#556">손잡이·손 넣는 구멍이 있는지, 쥐기 쉬운 모양인지</text></svg>`;
  return ""; }
 function nwCur(){ const t=S.tasks[NW.ti]; return t; }
-function nwCalc(){ const t=nwCur(), x=Object.assign({},t.nle||{},NW.v); return {x,kg:NW.kg,r:nle(x,NW.kg)}; }
+const nwSubs=()=>((nwCur().nle||{}).sub||[]);
+function nwBase(){ const t=nwCur(); return NW.sub==null?(t.nle||{}):(nwSubs()[NW.sub]||{}); }
+function nwCalc(){ const t=nwCur(), x=Object.assign({},nwBase(),NW.v); if(NW.sub!=null)x.dur=(t.nle||{}).dur; return {x,kg:NW.kg,r:nle(x,NW.kg)}; }
 function nwChips(k,list,unit=""){ return `<div class="nw-chips">${list.map(v=>`<button class="${String(NW.v[k])===String(v)?"on":""}" data-nwset="${k}|${v}">${v}${unit}</button>`).join("")}</div>`; }
 function nwNum(k,ph,val){ const v=val!==undefined?val:NW.v[k]; return `<input class="nw-in" inputmode="decimal" data-nwk="${k}" value="${v==null?"":esc(v)}" placeholder="${esc(ph)}">`; }
 function nwStep(){ const k=NW_STEPS[NW.i]; const t=nwCur(); let h="";
- if(k==="kg")h=`<p class="nw-p">들어 올리는 물건 하나의 무게입니다. 여러 무게를 다루면 <b>가장 무거운 것</b> 기준으로 넣으세요.</p>${nwNum("kg","예: 12",NW.kg??"")}<div class="nw-u">kg</div>${nwChips("kg",[5,10,15,20,25],"")}`;
+ if(k==="kg")h=`${NW.sub!=null?`<div class="nw-row"><label>이 들기 이름<input class="nw-in" data-nwk="name" value="${esc(NW.v.name||"")}" placeholder="예: 휠을 바닥에서 거치대로"></label></div>`:""}<p class="nw-p">들어 올리는 물건 하나의 무게입니다. 무게·높이가 다른 들기가 여럿이면 여기에는 <b>가장 힘든 들기</b>를 넣고, 마지막 단계에서 나머지를 <b>추가 들기</b>로 넣으세요.</p>${nwNum("kg","예: 12",NW.kg??"")}<div class="nw-u">kg</div>${nwChips("kg",[5,10,15,20,25],"")}`;
  if(k==="H")h=`${nwFig("H")}<p class="nw-p">줄자를 바닥과 평행하게 대고, <b>두 발목 가운데</b>에서 <b>두 손 가운데</b>까지 잽니다. 몸에 붙여 들수록 작아집니다.</p>${nwNum("H","예: 40")}<div class="nw-u">cm (25 미만이면 25로 계산, 63 넘으면 들 수 없는 거리로 봄)</div>${nwChips("H",[25,30,40,50,63])}`;
  if(k==="V")h=`${nwFig("V")}<p class="nw-p"><b>들기 시작할 때</b> 바닥에서 손(물건을 잡은 곳)까지의 높이입니다. 허리 높이(약 75cm)가 가장 좋습니다.</p>${nwNum("V","예: 30")}<div class="nw-u">cm</div>${nwChips("V",[0,25,50,75,100,150])}`;
  if(k==="D")h=`${nwFig("D")}<p class="nw-p">드는 곳 손 높이(V)와 <b>내려놓는 곳 손 높이</b>의 차이입니다. 내려놓는 높이를 넣으면 자동 계산합니다.</p><div class="nw-row"><label>드는 곳 (V)<input class="nw-in" value="${NW.v.V??""}" disabled></label><label>놓는 곳 높이${nwNum("dest","예: 110",NW.dest??"")}</label></div><div class="nw-u">또는 D를 직접 입력</div>${nwNum("D","예: 80")}<div class="nw-u">cm (25 미만이면 25로 계산)</div>`;
  if(k==="A")h=`${nwFig("A")}<p class="nw-p">들거나 놓을 때 <b>발은 그대로 두고 허리를 비트는 각도</b>입니다. 비틀지 않으면 0°.</p>${nwChips("A",[0,30,45,60,90,135],"°")}${nwNum("A","직접 입력 (°)")}`;
  if(k==="F")h=`<p class="nw-p">하루 몇 번 드는지와 그 작업을 하는 시간을 넣으면 <b>분당 횟수</b>를 계산합니다.</p><div class="nw-row"><label>하루 들기 횟수${nwNum("cnt","예: 120",NW.cnt??"")}</label><label>그 작업 시간(분)${nwNum("mins","예: 240",NW.mins??"")}</label></div><div class="nw-u">또는 분당 횟수 직접 입력</div>${nwNum("F","예: 0.5")}<div class="nw-u">회/분 (0.2 미만은 0.2로 계산)</div>
-  <div class="nw-lab">한 번 이어서 하는 들기 작업 시간</div><div class="nw-chips col">${DUR.map((d,i)=>`<button class="${NW.v.dur===d?"on":""}" data-nwset="dur|${d}">${d}<small>${["쉬는 시간(작업시간의 1.2배 이상)을 두고 1시간 이하","쉬는 시간(작업시간의 0.3배 이상)을 두고 2시간 이하","쉬는 시간 없이 2시간 넘게 반복"][i]}</small></button>`).join("")}</div>`;
+  ${NW.sub!=null?`<div class="nw-u">작업시간 구분은 주 들기와 같게 계산합니다: <b>${esc((nwCur().nle||{}).dur||"주 들기에서 먼저 고르세요")}</b></div>`:`<div class="nw-lab">한 번 이어서 하는 들기 작업 시간</div><div class="nw-chips col">${DUR.map((d,i)=>`<button class="${NW.v.dur===d?"on":""}" data-nwset="dur|${d}">${d}<small>${["쉬는 시간(작업시간의 1.2배 이상)을 두고 1시간 이하","쉬는 시간(작업시간의 0.3배 이상)을 두고 2시간 이하","쉬는 시간 없이 2시간 넘게 반복"][i]}</small></button>`).join("")}</div>`}`;
  if(k==="coup")h=`${nwFig("coup")}<div class="nw-chips col">${[["양호","손잡이·손 넣는 구멍이 알맞고 쥐기 쉬움"],["보통","손잡이는 없지만 손가락을 90° 굽혀 받쳐 들 수 있음"],["불량","손잡이가 없고 크거나 모양이 불규칙·미끄러움"]].map(([c,d])=>`<button class="${NW.v.coup===c?"on":""}" data-nwset="coup|${c}">${c}<small>${d}</small></button>`).join("")}</div>`;
- if(k==="fin"){ const {r}=nwCalc(); const miss=["H","V","D","A","F","dur","coup"].filter(q=>NW.v[q]==null||NW.v[q]==="").map(q=>({H:"H",V:"V",D:"D",A:"A",F:"빈도",dur:"작업시간",coup:"손잡이"})[q]);
+ if(k==="fin"){ const {r}=nwCalc(); const miss=["H","V","D","A","F","dur","coup"].filter(q=>!(q==="dur"&&NW.sub!=null)&&(NW.v[q]==null||NW.v[q]==="")).map(q=>({H:"H",V:"V",D:"D",A:"A",F:"빈도",dur:"작업시간",coup:"손잡이"})[q]);
   h=`${miss.length?`<div class="st-bar warn">아직 빈 항목: ${miss.join(", ")} — 앞 단계에서 채워 주세요.</div>`:""}
-  ${r&&r.RWL!=null?`<div class="nw-big ${r.LI==null?"":r.LI>3?"bad":r.LI>1?"mid":"ok"}"><div>권장무게한계 RWL <b>${fmt(r.RWL)} kg</b></div><div>들기 지수 LI <b>${r.LI==null?"–":fmt(r.LI)}</b></div><div>${esc(r.lv||"무게를 넣으면 판정합니다")}</div></div>
+  ${r&&r.RWL!=null?`<div class="nw-big ${r.LI==null?"":r.LI>3?"bad":r.LI>1?"mid":"ok"}"><div>${NW.sub==null&&nwSubs().length?"주 들기 — ":""}권장무게한계 RWL <b>${fmt(r.RWL)} kg</b></div><div>${NW.sub==null&&nwSubs().length?"단독 ":""}들기 지수 LI <b>${r.LI==null?"–":fmt(r.LI)}</b></div><div>${esc(r.lv||"무게를 넣으면 판정합니다")}</div></div>
   <table class="bt"><tr>${["HM","VM","DM","AM","FM","CM"].map(q=>`<th>${q}</th>`).join("")}</tr><tr>${["HM","VM","DM","AM","FM","CM"].map(q=>`<td>${fmt(r[q])}</td>`).join("")}</tr></table>
   ${r.LI>1?`<p class="nw-p"><b>가장 작은 계수</b>(${["HM","VM","DM","AM","FM","CM"].reduce((a,q)=>r[q]<r[a]?q:a,"HM")})를 키우는 것이 효과가 큽니다 — 예: 몸 가까이 들기(H), 허리 높이로 받침(V), 비틀지 않게 배치(A), 횟수 줄이기(F).</p>`:""}`:""}
-  <div class="nw-row"><label>평가 장면${`<input class="nw-in" data-nwk="scene" value="${esc(NW.v.scene||"")}" placeholder="예: 타이어를 바닥에서 들어 거치대에 올림">`}</label></div><div class="nw-row"><label>평가자<input class="nw-in" data-nwk="who" value="${esc(NW.v.who||"")}" placeholder="성명"></label></div>`; }
+  ${nwMulti()}<div class="nw-row"><label>평가 장면${`<input class="nw-in" data-nwk="scene" value="${esc(NW.v.scene||"")}" placeholder="예: 타이어를 바닥에서 들어 거치대에 올림">`}</label></div><div class="nw-row"><label>평가자<input class="nw-in" data-nwk="who" value="${esc(NW.v.who||"")}" placeholder="성명"></label></div>`; }
  return h; }
+function nwMulti(){ if(NW.sub!=null)return `<p class="nw-p">저장하면 주 들기 결과 화면으로 돌아가 복합 들기 지수(CLI)를 계산합니다.</p>`; const t=nwCur(), subs=nwSubs();
+ const main=Object.assign({},t.nle||{},NW.v); const c=subs.length?cliCalc(main,NW.kg,subs,main.dur):null;
+ return `<div class="nw-multi"><div class="nw-lab">무게·위치가 다른 들기가 또 있나요? (복합 작업)</div><p class="nw-u">한 작업 안에서 여러 물건이나 여러 높이로 드는 경우 각각 넣으면 <b>복합 들기 지수(CLI)</b>로 판정합니다.</p>
+ ${subs.map((x,i)=>{ const r=nle(Object.assign({},x,{dur:main.dur}),x.kg); return `<div class="nw-sub"><span><b>${i+2}. ${esc(x.name||"추가 들기")}</b><small>${esc(x.kg??"")}kg · ${esc(x.F??"")}회/분${r&&r.RWL!=null?` · 단독 LI ${fmt(+x.kg/r.RWL)}`:" · 빈 항목 있음"}</small></span><button data-nwsub="${i}">수정</button><button data-nwsubdel="${i}">삭제</button></div>`; }).join("")}
+ <button class="nw-add" data-nwsub="new">+ 다른 들기 추가</button>
+ ${c?(c.ok?`<div class="nw-big ${c.CLI>3?"bad":c.CLI>1?"mid":"ok"}"><div>복합 들기 지수 CLI <b>${isFinite(c.CLI)?fmt(c.CLI):"∞"}</b> (들기 ${c.n}개, 합계 ${fmt(c.Fsum)}회/분)</div><div>${esc(c.lv)}</div></div>`:`<div class="st-bar warn">추가 들기에 빈 항목이 있어 CLI를 계산하지 못했습니다.</div>`):""}</div>`; }
 function nwRender(){ let el=document.getElementById("nw"); if(!NW){ if(el)el.remove(); if(!document.getElementById("fv")&&!document.getElementById("pw"))document.body.style.overflow=""; return; }
  if(!el){ el=document.createElement("div"); el.id="nw"; document.body.appendChild(el); } document.body.style.overflow="hidden";
  const t=nwCur(), k=NW_STEPS[NW.i], {r}=nwCalc(); const keep=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.nwk;
- el.innerHTML=`<div class="nw-top"><button data-nwx="1">✕</button><div><b>NLE 들기 평가</b><span>${esc(t.id)} ${esc(t.name||"")}</span></div></div>
+ el.innerHTML=`<div class="nw-top"><button data-nwx="1">✕</button><div><b>NLE 들기 평가${NW.sub!=null?` — 추가 들기 ${NW.sub+2}`:""}</b><span>${esc(t.id)} ${esc(t.name||"")}</span></div></div>
  <div class="nw-prog">${NW_STEPS.map((s,i)=>`<i class="${i<NW.i?"d":i===NW.i?"c":""}"></i>`).join("")}</div>
  <div class="nw-body"><h3>${NW.i+1}. ${esc(NW_T[k])}</h3>${nwStep()}</div>
  <div class="nw-live">${r&&r.RWL!=null?`RWL ${fmt(r.RWL)}kg · LI ${r.LI==null?"–":fmt(r.LI)}`:"모든 항목을 넣으면 RWL·LI가 계산됩니다"}</div>
  <div class="nw-foot"><button data-nwgo="-1" ${NW.i?"":"disabled"}>‹ 이전</button>${k==="fin"?`<button class="p" data-nwsave="1">저장</button>`:`<button class="p" data-nwgo="1">다음 ›</button>`}</div>`;
  if(keep){ const i=el.querySelector(`[data-nwk="${keep}"]`); if(i){ i.focus(); const n=i.value.length; try{ i.setSelectionRange(n,n); }catch(e){} } } }
-function nwOpen(ti){ const t=S.tasks[ti]; if(!t)return; const o=t.nle||{}; NW={ti,i:0,kg:t.kg,v:Object.assign({},o),dest:isNum(o.V)&&isNum(o.D)?(+o.V+ +o.D):null};
- if(!NW.v.who)NW.v.who=devName&&devName()||""; nwRender(); }
-function nwSave(){ const t=nwCur(); const o=Object.assign({},t.nle||{},NW.v); ["cnt","mins","dest","kg"].forEach(k=>delete o[k]);
+function nwOpen(ti,sub=null,step=0){ const t=S.tasks[ti]; if(!t)return; const o=sub==null?(t.nle||{}):(((t.nle||{}).sub||[])[sub]||{}); NW={ti,sub,i:step,kg:sub==null?t.kg:o.kg,v:Object.assign({},o),dest:isNum(o.V)&&isNum(o.D)?(+o.V+ +o.D):null}; if(sub==null)delete NW.v.sub;
+ if(sub==null&&!NW.v.who)NW.v.who=devName&&devName()||""; nwRender(); }
+function nwSave(keep){ const t=nwCur(); if(NW.sub!=null)return nwSaveSub(); const o=Object.assign({},t.nle||{},NW.v); ["cnt","mins","dest","kg"].forEach(k=>delete o[k]);
  ["H","V","D","A","F"].forEach(k=>{ if(o[k]!==""&&o[k]!=null&&isNum(o[k]))o[k]=+o[k]; }); o.via="안내 입력"; o.date=today(); t.nle=o; if(NW.kg!==undefined&&NW.kg!=="")t.kg=isNum(NW.kg)?+NW.kg:NW.kg;
- NW=null; nwRender(); save(); render(); if(document.getElementById("fv")&&typeof fvRender==="function")fvRender(true); }
+ if(keep){ save(); return; } NW=null; nwRender(); save(); render(); if(document.getElementById("fv")&&typeof fvRender==="function")fvRender(true); }
+function nwSaveSub(){ const t=nwCur(); t.nle=t.nle||{}; const L=t.nle.sub=t.nle.sub||[]; const o=Object.assign({},L[NW.sub]||{},NW.v); ["cnt","mins","dest","dur","who","scene","via","date"].forEach(k=>delete o[k]);
+ ["H","V","D","A","F"].forEach(k=>{ if(o[k]!==""&&o[k]!=null&&isNum(o[k]))o[k]=+o[k]; }); o.kg=isNum(NW.kg)?+NW.kg:NW.kg; if(!o.id)o.id="L"+Date.now().toString(36).slice(-6); if(!o.name)o.name=`추가 들기 ${NW.sub+2}`;
+ L[NW.sub]=o; save(); nwOpen(NW.ti,null,NW_STEPS.length-1); }
 document.addEventListener("input",e=>{ const k=e.target.dataset&&e.target.dataset.nwk; if(!k||!NW)return; const v=e.target.value.trim();
  if(k==="kg")NW.kg=v===""?"":v; else if(k==="dest"){ NW.dest=v; if(isNum(v)&&isNum(NW.v.V))NW.v.D=Math.abs(+v-+NW.v.V); }
  else if(k==="cnt"||k==="mins"){ NW[k]=v; if(isNum(NW.cnt)&&isNum(NW.mins)&&+NW.mins>0)NW.v.F=Math.round(+NW.cnt/+NW.mins*100)/100; }
@@ -1531,8 +1569,10 @@ document.addEventListener("input",e=>{ const k=e.target.dataset&&e.target.datase
  const live=document.querySelector("#nw .nw-live"); const {r}=nwCalc(); if(live)live.textContent=r&&r.RWL!=null?`RWL ${fmt(r.RWL)}kg · LI ${r.LI==null?"–":fmt(r.LI)}`:"모든 항목을 넣으면 RWL·LI가 계산됩니다";
  if(["dest","cnt","mins","V"].includes(k)){ nwRender(); } },true);
 document.addEventListener("click",e=>{ const q=s=>e.target.closest(s); const o=q("[data-nwopen]"); if(o){ e.preventDefault(); nwOpen(+o.dataset.nwopen); return; } if(!NW)return;
- if(q("[data-nwx]")){ NW=null; nwRender(); return; } const g=q("[data-nwgo]"); if(g){ NW.i=Math.max(0,Math.min(NW_STEPS.length-1,NW.i+ +g.dataset.nwgo)); nwRender(); document.querySelector("#nw .nw-body").scrollTop=0; return; }
+ if(q("[data-nwx]")){ if(NW.sub!=null){ nwOpen(NW.ti,null,NW_STEPS.length-1); return; } NW=null; nwRender(); return; } const g=q("[data-nwgo]"); if(g){ NW.i=Math.max(0,Math.min(NW_STEPS.length-1,NW.i+ +g.dataset.nwgo)); nwRender(); document.querySelector("#nw .nw-body").scrollTop=0; return; }
  const s=q("[data-nwset]"); if(s){ const [k,v]=s.dataset.nwset.split("|"); if(k==="kg")NW.kg=+v; else NW.v[k]=isNum(v)?+v:v; nwRender(); return; }
+ const sb=q("[data-nwsub]"); if(sb){ nwSave(true); const ti=NW.ti, n=nwSubs().length; nwOpen(ti,sb.dataset.nwsub==="new"?n:+sb.dataset.nwsub,0); return; }
+ const sd=q("[data-nwsubdel]"); if(sd){ if(!confirm("이 추가 들기를 지울까요?"))return; nwSave(true); nwSubs().splice(+sd.dataset.nwsubdel,1); save(); nwRender(); return; }
  if(q("[data-nwsave]"))nwSave(); },true);
 /*NW-END*/
 // ── ⑦ TBM 간편 기록 (TQ) · ③ 사진 용량 관리 (PH) ──
@@ -1587,6 +1627,7 @@ const APP_RULES=[
  ["2026-11-25","NLE 빈도계수(FM)","표에 없는 빈도(예: 0.7회/분)를 바로 위 빈도 값으로 처리하던 방식을, NIOSH 매뉴얼대로 앞뒤 빈도 사이 선형 보간으로 변경. 0.2회/분 미만은 0.2로 계산.","NIOSH Applications Manual for the Revised NIOSH Lifting Equation (Pub. 94-110, 2021 개정)"],
  ["2026-11-25","RULA·REBA 점수표","웹앱 계산표와 엑셀 '참조표'를 원 논문 표와 칸별로 대조 — 불일치 없음. 그림으로 고르는 평가(그림 선택) 추가, 점수 규칙은 같음.","RULA: McAtamney & Corlett(1993) / REBA: Hignett & McAtamney(2000) — KOSHA 가이드가 지정한 출처"],
  ["2026-11-25","NLE 안내 입력","H·V·D·A 재는 위치를 그림으로 안내하고, 하루 횟수÷작업시간(분)으로 분당 빈도를 계산하는 입력 화면 추가. 계산식은 같음.","위 NIOSH 매뉴얼"],
+ ["2026-11-25","NLE 복합 들기 지수(CLI)","한 작업 안에 무게·위치가 다른 들기가 여럿이면 각각 입력해 복합 들기 지수로 판정. 누적 빈도 FM은 작업 전체의 작업시간 구분과 더해지는 들기의 V를 사용(매뉴얼이 V 기준을 따로 정하지 않아 정한 운영 기준).","NIOSH Pub. 94-110 (2021 개정) §2.4 Multi-Task Procedure"],
  ["2026-11-25","엑셀 내보내기","RULA·REBA·NLE 시트의 계산 칸을 잠그고(암호 없음) 노란 입력 칸만 고칠 수 있게 함. '사용 안내'·'기준·제도 변경 기록' 시트 추가.","—"]];
 function lawList(){ if(!Array.isArray(S.lawlog))S.lawlog=[]; return S.lawlog; }
 function lawCard(){ const L=lawList(); const R=S.risk||{};
@@ -1919,7 +1960,7 @@ function docModel(){ const B=[], rows=riskRows(), ts=validTasks(), procs=S.procs
  H("6. 작업조건조사 (유해요인 기본조사표 1~3단계)"); T([.9,2,3.2,.6,.6,.8,2,3.2,2.6],["ID","단위작업","작업내용","A","B","총점","유해요인","원인","면담 내용"],ts.map(t=>[t.id,t.name,v(t.content),v(t.A),v(t.B),score(t)||"",HZ.filter((_,j)=>(t.hz||[])[j]).join(", "),v(t.cause),v(t.interview)]));
  H("7. 인간공학 평가");
  const pre=ts.filter(t=>t.pre&&t.pre.tool); if(pre.length){ H("사진 판독 예비 평가",2); T([.9,2.2,.9,3,.8,.8,3,1.8],["ID","단위작업","도구","자세코드·세부 판독","예비 점수","조치 수준","판독 한계·확인 사항","정식 평가"],pre.map(t=>{const p=t.pre;return [t.id,t.name,p.tool,v(p.detail),v(p.score),v(p.lv),v(p.note),formalOf(t)||"정식 재평가 전"]})); }
- const fr=ts.filter(t=>rula(t.rula)).map(t=>{const r=rula(t.rula);return [t.id,t.name,"RULA",[t.rula.scene,t.rula.via].filter(Boolean).join(" · "),r.fin,`조치수준 ${r.lv}`,r.txt]}).concat(ts.filter(t=>reba(t.reba)).map(t=>{const r=reba(t.reba);return [t.id,t.name,"REBA",[t.reba.scene,t.reba.via].filter(Boolean).join(" · "),r.fin,r.lv,""]})).concat(ts.filter(t=>t.nle&&nle(t.nle,t.kg)).map(t=>{const r=nle(t.nle,t.kg);return [t.id,t.name,"NLE",`${v(t.kg)}kg`,`LI ${fmt(r.LI)}`,`RWL ${fmt(r.RWL)}kg`,r.lv]}));
+ const fr=ts.filter(t=>rula(t.rula)).map(t=>{const r=rula(t.rula);return [t.id,t.name,"RULA",[t.rula.scene,t.rula.via].filter(Boolean).join(" · "),r.fin,`조치수준 ${r.lv}`,r.txt]}).concat(ts.filter(t=>reba(t.reba)).map(t=>{const r=reba(t.reba);return [t.id,t.name,"REBA",[t.reba.scene,t.reba.via].filter(Boolean).join(" · "),r.fin,r.lv,""]})).concat(ts.filter(t=>t.nle&&nleJob(t)).map(t=>{const r=nleJob(t);return [t.id,t.name,r.cli?`NLE 복합 (들기 ${r.n}개)`:"NLE",`${v(t.kg)}kg`,`${r.cli?"CLI":"LI"} ${fmt(r.LI)}`,`RWL ${fmt(r.RWL)}kg${r.cli?" (주 들기)":""}`,r.lv]}));
  const done=new Set(fr.map(r=>r[0])); ts.filter(t=>!done.has(t.id)).forEach(t=>{const p=t.pre||{};fr.push([t.id,t.name,p.tool||"","","","","미평가 — 현장 관찰 후 평가"+(p.tool?` (예비 ${p.tool} ${p.score??""})`:"")]);}); fr.sort((a,b)=>ts.findIndex(t=>t.id===a[0])-ts.findIndex(t=>t.id===b[0]));
  H("정식 평가 (RULA·REBA·NLE)",2); T([.9,2.4,.9,2.6,1,1.4,3],["ID","단위작업","도구","장면·조건","점수","수준","판정·조치"],fr);
  H("8. 근골격계 증상조사 집계 (공정별)"); T([2.6,1,1,1,1,...PARTS.map(()=>.9)],["공정","응답자","증상자","관리대상자","통증 호소자",...PARTS],procs.map(p=>{const s=S.symp[p.id]||{};return [p.name,v(s.resp),v(s.sym),v(s.mgmt),v(s.pain),...PARTS.map((_,j)=>v((s.parts||[])[j]))]}));
@@ -2046,6 +2087,7 @@ function exportXlsx(){ const r2=v=>isNum(v)?Math.round(v*100)/100:v; const ts=va
  ["산업안전보건위원회",[["회차","일자","구분","근로자위원","사용자위원","안건","심의·의결 내용","위험성평가 보고","결과 게시"],...S.council.map(x=>[x.no||"",x.date||"",x.kind||"",x.nL??"",x.nM??"",x.agenda||"",x.result||"",x.ra||"",x.post||""])]],
  ["연도별 비교",[["연도","기록일","단위작업","부담작업","1순위 공정","응답자","관리대상자","위험 상","위험 중","위험 하","개선 후 상","개선 완료율(%)","목표일 경과","TBM"],...(S.history||[]).map(h=>[h.year,h.date,h.tasks,h.burden,h.p1,h.resp,h.mgmt,h.J.상,h.J.중,h.J.하,h.T상,h.done,h.overdue,h.tbm])]],
  ["참여·공유 기록",[["구분","1","2","3","4","5"],...S.meetings.map(x=>["회의",x.name||"",x.date||"",x.place||"",x.agenda||"",x.n??""]),...S.attendees.map(x=>["참석자",x.role||"",x.name||"",x.pos||"",x.dutY||"",""]),...S.opinions.map(x=>["근로자 의견",x.who||"",x.date||"",x.state||"",x.text||"",x.result||""]),...S.shares.map(x=>["결과 공유",x.how||"",x.date||"",x.to||"",x.what||"",x.chk||""])]]];
+ { const mt=validTasks().filter(t=>t.nle&&(t.nle.sub||[]).length); if(mt.length){ const rr=x=>isNum(x)&&isFinite(x)?Math.round(x*1000)/1000:"∞"; const rows=[["작업 ID","단위작업명","순서(STLI 큰 순)","들기","중량(kg)","H","V","D","A","빈도(회/분)","손잡이","FIRWL","STRWL","FILI","STLI","CLI 증분","CLI","판정"]]; mt.forEach(t=>{ const j=nleJob(t); if(!j||!j.C){ rows.push([t.id,t.name,"","입력 중","","","","","","","","","","","","","",j?j.lv:""]); return; } j.C.list.forEach((L,k)=>rows.push([t.id,t.name,k+1,L.x.name||"",L.x.kg,L.x.H,L.x.V,L.x.D,L.x.A,L.x.F,L.x.coup||"",rr(L.FIRWL),rr(L.STRWL),rr(L.FILI),rr(L.STLI),k?rr(L.inc):"",k?"":rr(j.C.CLI),k?"":j.C.lv])); }); rows.push(["","※ 웹앱 계산값 — NIOSH Pub. 94-110(2021) §2.4 복합 들기 지수. 누적 빈도 FM은 주 들기의 작업시간 구분, 더해지는 들기의 V 사용."]); sh.push(["NLE 복합",rows,{}]); } }
  sh.unshift(["사용 안내",xlGuide(),{}]); sh.push(["기준·제도 변경 기록",xlLaw(),{}]); sh.push(refSheet()); writeXlsx(sh); }
 // ── 예시 자료 (검증용 표본) ──
 function sampleMfg(){ const s=BLANK();
